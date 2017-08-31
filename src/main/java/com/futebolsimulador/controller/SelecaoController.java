@@ -23,8 +23,8 @@ public class SelecaoController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Selecao> cadastrarSelecao(@RequestBody Selecao selecao){
-		Selecao selecaoCadastradata = selecaoService.cadastrar(selecao);
-		return new ResponseEntity<>(selecaoCadastradata, HttpStatus.OK);
+		Selecao selecaoCadastrada = selecaoService.cadastrar(selecao);
+		return new ResponseEntity<>(selecaoCadastrada, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)

@@ -1,0 +1,75 @@
+<div>
+	<section class="panel">
+        <header class="panel-heading">
+           Cadastro de Seleção
+        </header>
+        <div class="panel-body">
+	        <form id="formCliente" ng-submit="salvarSelecao()">
+	        	<div class="row">
+	        		<div class="col-md-2">
+						<div class="form-group"> 
+						   <label>Bandeira</label> 
+						   <div class="dropdown">
+							  <button class="btn btn-default btn-block" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							    <div ng-if="selecao.bandeira == null">Selecione <span class="caret"></span></div>
+							    <div ng-if="selecao.bandeira != null"><img ng-src="img/bandeiras/{{selecao.bandeira}}"/><span class="caret"></span></div> 
+							  </button>
+							  <ul class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu1">
+							    <li ng-repeat="bandeira in bandeiras" ng-click="visualizarImagem(bandeira)"><img ng-src="img/bandeiras/{{bandeira}}"/>{{" - "+bandeira}}</li>
+							  </ul>
+							</div>
+						   <!-- <div class="btn-group">
+							   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							       <div ng-if="selecao.bandeira == null">Selecione</div>
+							       <div ng-if="selecao.bandeira != null"><img ng-src="img/bandeiras/{{selecao.bandeira}}"/></div>
+							   </button>
+							    <ul class="dropdown-menu">
+							      <li class="dropdown-header">Selecione uma bandeira</li>
+							      <li ng-repeat="bandeira in bandeiras"><img ng-src="img/bandeiras/{{bandeira}}"/></li>
+							    </ul>
+							</div>
+							<select id="selectNivel" ng-model="selecao.bandeira" class="form-control"> 
+							    <option ng-repeat="bandeira in bandeiras" value="{{bandeira}}"></option>
+							</select>	 -->
+						</div>
+					</div>
+					<div class="col-md-10">
+						<div class="form-group">
+							<label>Nome</label> <input type="text" name="hora" ng-model="selecao.nome"
+								class="form-control border-input"  />
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<label>Sigla</label> <input type="text" name="hora" ng-model="selecao.abrev"
+								class="form-control border-input"  />
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group"> 
+						   <label>Confederação</label> 
+							<select id="selectConfederacao" ng-model="selecao.confederacao" class="form-control"> 
+							    <option ng-repeat="confederacao in confederacoes" value="{{confederacao}}">{{confederacao}}</option>
+							</select>	
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group"> 
+						   <label>Nível</label> 
+							<select id="selectNivel" ng-model="selecao.nivel" class="form-control"> 
+							    <option ng-repeat="nivel in niveis" value="{{nivel}}">{{nivel}}</option>
+							</select>	
+						</div>
+					</div>
+				</div>
+	        	<div class="row">
+	        		<div class="col-md-3">
+						<button type="submit" class="btn btn-info btn-fill btn-wd">Salvar</button>
+					</div>
+	        	</div>
+	        </form>
+        </div>
+    </section>
+</div>

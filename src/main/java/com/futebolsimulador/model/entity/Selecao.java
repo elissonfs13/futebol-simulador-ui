@@ -24,7 +24,7 @@ public class Selecao implements Serializable {
 	private String nome;
 	
 	@Column(columnDefinition="text")
-	private String image;
+	private String bandeira;
 	
 	private Integer nivel;
 	
@@ -49,12 +49,12 @@ public class Selecao implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getImage() {
-		return image;
+	public String getBandeira() {
+		return bandeira;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setBandeira(String bandeira) {
+		this.bandeira = bandeira;
 	}
 
 	public Integer getNivel() {
