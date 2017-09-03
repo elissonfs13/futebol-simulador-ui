@@ -3,19 +3,42 @@
         <header class="panel-heading no-border">
             Seleções Cadastradas
         </header>
-        <table class="table table-bordered" style="background-color: #fafafa;">
+        <div class="panel-body" style="background-color: #fafafa;">
+        	<div class="row">
+	        	<form class="form-inline">
+	        		<div class="col-md-3">
+	        			<label>Quantidade por página</label>
+	        			<div class="form-group">
+			        		<select id="qtdSelecoes" ng-model="qtdSelecoes" class="form-control"> 
+							    <option ng-repeat="qtd in itensPorPagina" value="{{qtd}}">{{qtd}}</option>
+							</select>
+						</div>
+	        		</div>
+	        		<div class="col-md-6 text-center">
+	        			<dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
+	        		</div>
+	        		<div class="col-md-3 pull-right">
+		        		<label>Filtro</label> 
+					    <div class="form-group">
+					        <input type="text" ng-model="procurar" class="form-control" placeholder="Procurar...">
+					    </div>
+					</div>
+				</form>
+       		</div>
+   		</div>
+        <table id="selecoesLista" class="table table-bordered" style="background-color: #fafafa;">
             <thead>
             <tr>
                 <th class="text-center">Bandeira</th>
-                <th>Nome</th>
-                <th class="text-center">Confederação</th>
-                <th class="text-center">Sigla</th>
-                <th class="text-center">Nível</th>
+                <th ng-click="ordenar('nome')">Nome</th>
+                <th class="text-center" ng-click="ordenar('confederacao')">Confederação</th>
+                <th class="text-center" ng-click="ordenar('abrev')">Sigla</th>
+                <th class="text-center" ng-click="ordenar('nivel')">Nível</th>
                 <th>Ações</th>
             </tr>
             </thead>
             <tbody>
-	            <tr ng-repeat="selecao in selecoes"> 
+	            <tr dir-paginate="selecao in selecoes|filter:procurar|orderBy:sortKey:reverse|itemsPerPage:qtdSelecoes"> 
 					<td class="text-center"><img ng-src="img/bandeiras/{{selecao.bandeira}}"/></td>
 					<td style="vertical-align: middle;">{{selecao.nome}}</td>
 					<td class="text-center" style="vertical-align: middle;">{{selecao.confederacao}}</td>
@@ -31,6 +54,7 @@
 				</tr>
             </tbody>
         </table>
+        
     </section>
 </div>
 

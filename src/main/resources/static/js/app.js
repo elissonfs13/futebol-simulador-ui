@@ -1,5 +1,5 @@
 //Criacao do modulo principal da aplicacao
-var appSimulador = angular.module("appSimulador", [ 'ngRoute' ]);
+var appSimulador = angular.module("appSimulador", [ 'ngRoute', 'angularUtils.directives.dirPagination' ]);
 
 appSimulador.config(function($routeProvider, $locationProvider) {
 
