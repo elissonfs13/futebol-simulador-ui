@@ -1,0 +1,33 @@
+<div class="col-sm-12" ng-init="listarSelecoes()">
+    <section class="panel">
+        <header class="panel-heading no-border">
+            Selecionador de Seleções
+        </header>
+        <div class="row">
+          <div class="col-sm-12">
+        	<p>{{selecoesSelecionadas.length}} seleções selecionadas</p>
+          </div>
+	    </div>
+        <div class="row">
+          <div class="col-sm-6">
+	        <div class="panel-body">
+	          <div class="text" ng-repeat="selecao in selecoes">	
+	        	<a ng-click="seleciona(selecao)" class="activity-img"><img ng-src="img/bandeiras/{{selecao.bandeira}}"/></a>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="col-sm-6">
+	        <div class="panel-body">
+	          <div class="text" ng-repeat="selecao in selecoesSelecionadas">	
+	        	<a ng-click="deseleciona(selecao)" class="activity-img"><img ng-src="img/bandeiras/{{selecao.bandeira}}"/></a>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="row">
+          <div class="col-sm-12" ng-if="campeonatoCompleto()">
+        	<a class="btn btn-primary" ng-click="gerarCampeonato()" title="Bootstrap 3 themes generator">Gerar Campeonato</a>
+          </div>
+	    </div>
+    </section>
+</div>
