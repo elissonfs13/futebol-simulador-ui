@@ -2,16 +2,18 @@ package com.futebolsimulador.model.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.futebolsimulador.model.enuns.Resultado;
-import com.futebolsimulador.util.GeradorAleatorio;
 
 @Entity
 public class Jogo implements Serializable {
@@ -21,21 +23,19 @@ public class Jogo implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private GeradorAleatorio gerador;
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "jogo_id")
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name = "selecao1", referencedColumnName = "selecao_id")
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao selecao1;
 	
 	private Integer gols1;
 	
-	@ManyToOne
-	@JoinColumn(name = "selecao2", referencedColumnName = "selecao_id")
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao selecao2;
 	
 	private Integer gols2;
@@ -44,12 +44,14 @@ public class Jogo implements Serializable {
 	
 	private Resultado resultado;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "grupo_id")
+	@JsonBackReference
 	private Grupo grupo;
 	
-	@ManyToOne
-	@JoinColumn(name = "campeonato_id")
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="campeonato_id")
+    @JsonBackReference
 	private Campeonato campeonato;
 
 	public Long getId() {
@@ -61,7 +63,6 @@ public class Jogo implements Serializable {
 		this.selecao1 = selecao1;
 		this.selecao2 = selecao2;
 		this.podeEmpatar = podeEmpatar;
-		gerarResultado();
 	}
 
 	public void setId(Long id) {
@@ -131,31 +132,4 @@ public class Jogo implements Serializable {
 	public void setCampeonato(Campeonato campeonato) {
 		this.campeonato = campeonato;
 	}
-
-	private void gerarResultado() {
-		if (this.podeEmpatar){
-			geraGols();
-		} else {
-			while (this.gols1.equals(gols2)){
-				geraGols();
-			}
-		}
-		this.resultado = verificarResultado();
-	}
-
-	private void geraGols() {
-		this.gols1 = gerador.getNumRandom(selecao1.getNivel());
-		this.gols2 = gerador.getNumRandom(selecao2.getNivel());
-	}
-
-	private Resultado verificarResultado() {
-		if (this.gols1 > this.gols2){
-			return Resultado.TIME1;
-		} else if (this.gols1 < this.gols2){
-			return Resultado.TIME2;
-		} else {
-			return Resultado.EMPATE;
-		}
-	}
-
 }

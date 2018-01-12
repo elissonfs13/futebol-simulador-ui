@@ -1,16 +1,17 @@
 package com.futebolsimulador.model.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Campeonato implements Serializable {
@@ -26,37 +27,38 @@ public class Campeonato implements Serializable {
 	
 	private Selecao sede;
 	
-	private ArrayList<Grupo> grupos;
+	@OneToMany(mappedBy = "campeonato", fetch = FetchType.EAGER)
+    @JsonManagedReference
+	private List<Grupo> grupos;
 	
-	@OneToMany(mappedBy = "campeonato", cascade = CascadeType.ALL)
-	private ArrayList<Jogo> oitavasFinal;
+	@OneToMany(mappedBy = "campeonato", fetch = FetchType.EAGER)
+    @JsonManagedReference
+	private List<Jogo> oitavasFinal;
 	
-	@OneToMany(mappedBy = "campeonato", cascade = CascadeType.ALL)
-	private ArrayList<Jogo> quartasFinal;
+	@OneToMany(mappedBy = "campeonato", fetch = FetchType.EAGER)
+    @JsonManagedReference
+	private List<Jogo> quartasFinal;
 	
-	@OneToMany(mappedBy = "campeonato", cascade = CascadeType.ALL)
-	private ArrayList<Jogo> semiFinal;
+	@OneToMany(mappedBy = "campeonato", fetch = FetchType.EAGER)
+    @JsonManagedReference
+	private List<Jogo> semiFinal;
 	
-	@OneToMany(mappedBy = "campeonato", cascade = CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Jogo terceiroQuarto;
 	
-	@OneToMany(mappedBy = "campeonato", cascade = CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Jogo finalCampeonato;
 	
-	@ManyToOne
-	@JoinColumn(name = "selecao1", referencedColumnName = "selecao_id")
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao primeiro;
 	
-	@ManyToOne
-	@JoinColumn(name = "selecao2", referencedColumnName = "selecao_id")
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao segundo;
 	
-	@ManyToOne
-	@JoinColumn(name = "selecao3", referencedColumnName = "selecao_id")
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao terceiro;
 	
-	@ManyToOne
-	@JoinColumn(name = "selecao4", referencedColumnName = "selecao_id")
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao quarto;
 
 	public Long getId() {
@@ -67,35 +69,35 @@ public class Campeonato implements Serializable {
 		this.id = id;
 	}
 
-	public ArrayList<Grupo> getGrupos() {
+	public List<Grupo> getGrupos() {
 		return grupos;
 	}
 
-	public void setGrupos(ArrayList<Grupo> grupos) {
+	public void setGrupos(List<Grupo> grupos) {
 		this.grupos = grupos;
 	}
 
-	public ArrayList<Jogo> getOitavasFinal() {
+	public List<Jogo> getOitavasFinal() {
 		return oitavasFinal;
 	}
 
-	public void setOitavasFinal(ArrayList<Jogo> oitavasFinal) {
+	public void setOitavasFinal(List<Jogo> oitavasFinal) {
 		this.oitavasFinal = oitavasFinal;
 	}
 
-	public ArrayList<Jogo> getQuartasFinal() {
+	public List<Jogo> getQuartasFinal() {
 		return quartasFinal;
 	}
 
-	public void setQuartasFinal(ArrayList<Jogo> quartasFinal) {
+	public void setQuartasFinal(List<Jogo> quartasFinal) {
 		this.quartasFinal = quartasFinal;
 	}
 
-	public ArrayList<Jogo> getSemiFinal() {
+	public List<Jogo> getSemiFinal() {
 		return semiFinal;
 	}
 
-	public void setSemiFinal(ArrayList<Jogo> semiFinal) {
+	public void setSemiFinal(List<Jogo> semiFinal) {
 		this.semiFinal = semiFinal;
 	}
 

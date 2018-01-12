@@ -54,5 +54,11 @@ public class SelecaoController {
 		Selecao selecaoAlterada = selecaoService.alterar(selecao);
 		return new ResponseEntity<>(selecaoAlterada, HttpStatus.OK);
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/pre" )
+	public ResponseEntity<Selecao> preCadastro() {
+		selecaoService.preCadastroSelecoes();
+		return new ResponseEntity<>( HttpStatus.OK);
+	}
 
 }

@@ -2,13 +2,17 @@ package com.futebolsimulador.model.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class InfoSelecaoNoGrupo implements Serializable, Comparable<InfoSelecaoNoGrupo>{
@@ -23,12 +27,12 @@ public class InfoSelecaoNoGrupo implements Serializable, Comparable<InfoSelecaoN
 	@Column(name = "info_id")
 	private Long id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "grupo_id")
+	@JsonBackReference
 	private Grupo grupo;
 	
-	@ManyToOne
-	@JoinColumn(name = "selecao", referencedColumnName = "selecao_id")
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao selecao;
 	
 	private Integer pontos;

@@ -37,7 +37,7 @@ public class CampeonatoService {
 		return campeonatoRepository.findOne(id);
 	}
 
-	private Campeonato geraCampeonato(ArrayList<Selecao> selecoes) {
+	public Campeonato geraCampeonato(ArrayList<Selecao> selecoes) {
 		Campeonato campeonato = new Campeonato();
 		campeonato.setGrupos(grupoService.geraGrupos(selecoes));
 		campeonato.setOitavasFinal(geraOitavasFinal(campeonato.getGrupos()));
@@ -62,27 +62,28 @@ public class CampeonatoService {
 		campeonato.setFinalCampeonato(jogoService.geraJogo(getVencedor(campeonato.getSemiFinal().get(0)), getVencedor(campeonato.getSemiFinal().get(1)), empate));
 	}
 
-	private ArrayList<Jogo> geraSemiFinal(ArrayList<Jogo> quartasFinal) {
+	private List<Jogo> geraSemiFinal(List<Jogo> quartasFinal) {
 		Boolean empate = Boolean.FALSE;
-		ArrayList<Jogo> semi = new ArrayList<Jogo>();
+		List<Jogo> semi = new ArrayList<Jogo>();
 		semi.add(jogoService.geraJogo(getVencedor(quartasFinal.get(0)), getVencedor(quartasFinal.get(1)), empate));
 		semi.add(jogoService.geraJogo(getVencedor(quartasFinal.get(2)), getVencedor(quartasFinal.get(3)), empate));
 		return semi;
 	}
 
-	private ArrayList<Jogo> geraQuartasFinal(ArrayList<Jogo> oitavasFinal) {
+	private List<Jogo> geraQuartasFinal(List<Jogo> oitavasFinal) {
 		Boolean empate = Boolean.FALSE;
-		ArrayList<Jogo> quartas = new ArrayList<Jogo>();
+		List<Jogo> quartas = new ArrayList<Jogo>();
 		quartas.add(jogoService.geraJogo(getVencedor(oitavasFinal.get(0)), getVencedor(oitavasFinal.get(1)), empate));
 		quartas.add(jogoService.geraJogo(getVencedor(oitavasFinal.get(2)), getVencedor(oitavasFinal.get(3)), empate));
 		quartas.add(jogoService.geraJogo(getVencedor(oitavasFinal.get(4)), getVencedor(oitavasFinal.get(5)), empate));
+		
 		quartas.add(jogoService.geraJogo(getVencedor(oitavasFinal.get(6)), getVencedor(oitavasFinal.get(7)), empate));
 		return quartas;
 	}
 
-	private ArrayList<Jogo> geraOitavasFinal(ArrayList<Grupo> grupos) {
+	private List<Jogo> geraOitavasFinal(List<Grupo> grupos) {
 		Boolean empate = Boolean.FALSE;
-		ArrayList<Jogo> oitavas = new ArrayList<Jogo>();
+		List<Jogo> oitavas = new ArrayList<Jogo>();
 		oitavas.add(jogoService.geraJogo(grupos.get(0).getInfoSelecoes().get(0).getSelecao(), grupos.get(7).getInfoSelecoes().get(1).getSelecao(), empate));
 		oitavas.add(jogoService.geraJogo(grupos.get(1).getInfoSelecoes().get(0).getSelecao(), grupos.get(6).getInfoSelecoes().get(1).getSelecao(), empate));
 		oitavas.add(jogoService.geraJogo(grupos.get(2).getInfoSelecoes().get(0).getSelecao(), grupos.get(5).getInfoSelecoes().get(1).getSelecao(), empate));

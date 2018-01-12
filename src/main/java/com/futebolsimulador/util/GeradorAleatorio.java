@@ -2,6 +2,9 @@ package com.futebolsimulador.util;
 
 import java.util.Random;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GeradorAleatorio {
 	
 	public static void main(String[] args) {

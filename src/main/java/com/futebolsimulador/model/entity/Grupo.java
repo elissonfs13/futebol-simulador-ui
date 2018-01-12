@@ -1,15 +1,21 @@
 package com.futebolsimulador.model.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Grupo implements Serializable {
@@ -26,12 +32,18 @@ public class Grupo implements Serializable {
 	
 	private String nome;
 	
-	@OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL)
-	@Column(name = "infos")
-	private ArrayList<InfoSelecaoNoGrupo> infoSelecoes;
+	@OneToMany(mappedBy = "grupo", fetch = FetchType.EAGER)
+    @JsonManagedReference
+	private List<InfoSelecaoNoGrupo> infoSelecoes;
 	
-	@OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL)
-	private ArrayList<Jogo> jogos;
+	@OneToMany(mappedBy = "grupo", fetch = FetchType.EAGER)
+    @JsonManagedReference
+	private List<Jogo> jogos;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="campeonato_id")
+    @JsonBackReference
+	private Campeonato campeonato;
 
 	public Long getId() {
 		return id;
@@ -54,22 +66,28 @@ public class Grupo implements Serializable {
 		this.nome = nome;
 	}
 
-	public ArrayList<InfoSelecaoNoGrupo> getInfoSelecoes() {
+	public List<InfoSelecaoNoGrupo> getInfoSelecoes() {
 		return infoSelecoes;
 	}
 
-	public void setInfoSelecoes(ArrayList<InfoSelecaoNoGrupo> infoSelecoes) {
+	public void setInfoSelecoes(List<InfoSelecaoNoGrupo> infoSelecoes) {
 		this.infoSelecoes = infoSelecoes;
 	}
 
-	public ArrayList<Jogo> getJogos() {
+	public List<Jogo> getJogos() {
 		return jogos;
 	}
 
-	public void setJogos(ArrayList<Jogo> jogos) {
+	public void setJogos(List<Jogo> jogos) {
 		this.jogos = jogos;
 	}
-	
-	
+
+	public Campeonato getCampeonato() {
+		return campeonato;
+	}
+
+	public void setCampeonato(Campeonato campeonato) {
+		this.campeonato = campeonato;
+	}
 
 }

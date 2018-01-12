@@ -16,6 +16,14 @@ appSimulador.controller ("cadastroSelecaoController", function  ($scope, $routeP
 			erro("Error: " + status);
 		});
 	};
+
+	$scope.preCadastro = function(){
+		$http.get("selecao/pre").then(function (response){
+			sucesso("Seleções cadastradas com sucesso!"); 
+		}, function (response){
+			erro("Error: " + status);
+		});
+	};
 	
 	$scope.getSelecao = function(selecaoId){
 		$http.get("selecao/"+selecaoId).then(function (response){

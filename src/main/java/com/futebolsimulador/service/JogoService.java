@@ -10,6 +10,7 @@ import com.futebolsimulador.model.entity.Jogo;
 import com.futebolsimulador.model.entity.Selecao;
 import com.futebolsimulador.model.enuns.Resultado;
 import com.futebolsimulador.repository.JogoRepository;
+import com.futebolsimulador.util.GeradorAleatorio;
 
 @Service
 public class JogoService {
@@ -17,8 +18,12 @@ public class JogoService {
 	@Autowired
 	private JogoRepository jogoRepository;
 	
+	@Autowired
+	private GeradorAleatorio gerador;
+	
 	public Jogo geraJogo(Selecao selecao1, Selecao selecao2, Boolean podeEmpatar){
 		Jogo jogo = new Jogo(selecao1, selecao2, podeEmpatar);
+		gerarResultado(jogo);
 		return jogo;
 	}
 	
@@ -51,6 +56,32 @@ public class JogoService {
 		infoSelecao2.setGolsSofridos(infoSelecao2.getGolsSofridos() + jogo.getGols1());
 		
 		return jogo;
+	}
+	
+	private void gerarResultado(Jogo jogo) {
+		if (jogo.getPodeEmpatar()){
+			geraGols(jogo);
+		} else {
+			while (jogo.getGols1().equals(jogo.getGols2())){
+				geraGols(jogo);
+			}
+		}
+		jogo.setResultado(verificarResultado(jogo));
+	}
+
+	private void geraGols(Jogo jogo) {
+		jogo.setGols1(gerador.getNumRandom(jogo.getSelecao1().getNivel()));
+		jogo.setGols2(gerador.getNumRandom(jogo.getSelecao2().getNivel()));
+	}
+
+	private Resultado verificarResultado(Jogo jogo) {
+		if (jogo.getGols1() > jogo.getGols2()){
+			return Resultado.TIME1;
+		} else if (jogo.getGols1() < jogo.getGols2()){
+			return Resultado.TIME2;
+		} else {
+			return Resultado.EMPATE;
+		}
 	}
 
 }

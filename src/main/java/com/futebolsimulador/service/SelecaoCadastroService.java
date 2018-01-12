@@ -1,7 +1,5 @@
 package com.futebolsimulador.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,37 +8,16 @@ import com.futebolsimulador.model.enuns.Confederacao;
 import com.futebolsimulador.repository.SelecaoRepository;
 
 @Service
-public class SelecaoService {
+public class SelecaoCadastroService {
 	
 	@Autowired
-	private SelecaoRepository selecaoRepository;
+	private static SelecaoRepository selecaoRepository;
 	
-	public Selecao cadastrar(Selecao selecao) {
-		return selecaoRepository.save(selecao);
+	public static void main(String[] args) {
+		precadastroSelecoes();
 	}
 	
-	public List<Selecao> buscarTodos() {
-		return selecaoRepository.findAll();
-	}
-	
-	public Selecao buscarPorId(Long id) {
-		return selecaoRepository.findOne(id);
-	}
-	
-	public void excluir(Selecao selecao) {
-		selecaoRepository.delete(selecao);
-	}
-	
-	public Selecao alterar(Selecao selecao) {
-		return selecaoRepository.save(selecao);
-	}
-	
-	public void preCadastroSelecoes(){
-		selecaoRepository.deleteAll();
-		cadastraSelecoes();
-	}
-
-	private void cadastraSelecoes() {
+	private static void precadastroSelecoes(){
 		cadastraSelecao("Argentina", "ARG", "AR.png", Confederacao.CONMEBOL, new Integer(6));
 		cadastraSelecao("Bolívia", "BOL", "BO.png", Confederacao.CONMEBOL, new Integer(2));
 		cadastraSelecao("Brasil", "BRA", "BR.png", Confederacao.CONMEBOL, new Integer(6));
@@ -95,7 +72,7 @@ public class SelecaoService {
 		cadastraSelecao("Arábia Saudita", "SAU", "SA.png", Confederacao.AFC, new Integer(2));
 		cadastraSelecao("Austrália", "AUS", "AU.png", Confederacao.AFC, new Integer(3));
 		cadastraSelecao("China", "CHN", "CN.png", Confederacao.AFC, new Integer(2));
-		cadastraSelecao("Coreia do Sul", "COR", "KR.png", Confederacao.AFC, new Integer(3));
+		cadastraSelecao("Coreia do Sul", "COR", "KO.png", Confederacao.AFC, new Integer(3));
 		cadastraSelecao("Irã", "IRA", "IR.png", Confederacao.AFC, new Integer(2));
 		cadastraSelecao("Japão", "JAP", "JP.png", Confederacao.AFC, new Integer(3));
 		cadastraSelecao("Qatar", "QAT", "QA.png", Confederacao.AFC, new Integer(2));
@@ -111,11 +88,11 @@ public class SelecaoService {
 		cadastraSelecao("Gana", "GAN", "GH.png", Confederacao.CAF, new Integer(4));
 		cadastraSelecao("Marrocos", "MAR", "MA.png", Confederacao.CAF, new Integer(3));
 		cadastraSelecao("Nigéria", "NIG", "NG.png", Confederacao.CAF, new Integer(4));
-		cadastraSelecao("Senegal", "SEN", "SN.png", Confederacao.CAF, new Integer(3));
+		cadastraSelecao("Senegal", "SEN", ".SNpng", Confederacao.CAF, new Integer(3));
 		cadastraSelecao("Tunísia", "TUN", "TN.png", Confederacao.CAF, new Integer(2));
 	}
 	
-	private void cadastraSelecao(String nome, String abrev, String bandeira, Confederacao confederacao, Integer nivel){
+	private static void cadastraSelecao(String nome, String abrev, String bandeira, Confederacao confederacao, Integer nivel){
 		Selecao selecao = new Selecao();
 		selecao.setNome(nome);
 		selecao.setAbrev(abrev);
