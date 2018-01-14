@@ -3,7 +3,6 @@ package com.futebolsimulador.model.entity;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,7 +23,6 @@ public class InfoSelecaoNoGrupo implements Serializable, Comparable<InfoSelecaoN
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "info_id")
 	private Long id;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -52,6 +50,10 @@ public class InfoSelecaoNoGrupo implements Serializable, Comparable<InfoSelecaoN
 	public InfoSelecaoNoGrupo(Selecao selecao) {
 		super();
 		this.selecao = selecao;
+		this.pontos = new Integer(0);
+		this.golsMarcados = new Integer(0);
+		this.golsSofridos = new Integer(0);
+		this.saldoGols = new Integer(0);
 	}
 
 	public void setId(Long id) {

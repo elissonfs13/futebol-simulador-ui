@@ -24,6 +24,7 @@ public class JogoService {
 	public Jogo geraJogo(Selecao selecao1, Selecao selecao2, Boolean podeEmpatar){
 		Jogo jogo = new Jogo(selecao1, selecao2, podeEmpatar);
 		gerarResultado(jogo);
+		jogoRepository.saveAndFlush(jogo);
 		return jogo;
 	}
 	
@@ -39,7 +40,8 @@ public class JogoService {
 	}
 	
 	public Jogo geraJogoGrupo(InfoSelecaoNoGrupo infoSelecao1, InfoSelecaoNoGrupo infoSelecao2, Boolean podeEmpatar){
-		Jogo jogo = new Jogo(infoSelecao1.getSelecao(), infoSelecao2.getSelecao(), podeEmpatar);
+		//Jogo jogo = new Jogo(infoSelecao1.getSelecao(), infoSelecao2.getSelecao(), podeEmpatar);
+		Jogo jogo = geraJogo(infoSelecao1.getSelecao(), infoSelecao2.getSelecao(), podeEmpatar);
 		
 		if (Resultado.TIME1.equals(jogo.getResultado())){
 			infoSelecao1.setPontos(infoSelecao1.getPontos() + 3);

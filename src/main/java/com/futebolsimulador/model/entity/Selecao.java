@@ -19,7 +19,6 @@ public class Selecao implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "selecao_id")
 	private Long id;
 	
 	private String nome;

@@ -25,6 +25,7 @@ public class Campeonato implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao sede;
 	
 	@OneToMany(mappedBy = "campeonato", fetch = FetchType.EAGER)

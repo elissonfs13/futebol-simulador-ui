@@ -16,6 +16,7 @@ appSimulador.controller ("campeonatoController", function  ($scope, $http, $wind
 	$scope.semis = undefined;
 	$scope.finalCampeonato = undefined;
 	$scope.terceiroQuarto = undefined;
+	$scope.campeonatoGerado = false;
 	
 	$scope.listarSelecoes = function(){
 		$http({method:'GET', url:'/selecao'})
@@ -43,7 +44,8 @@ appSimulador.controller ("campeonatoController", function  ($scope, $http, $wind
 			 $scope.semis = $scope.campeonato.semiFinal;
 			 $scope.finalCampeonato = $scope.campeonato.finalCampeonato;
 			 $scope.terceiroQuarto = $scope.campeonato.terceiroQuarto;
-			 $window.location.href = '/campeonato.html';
+			 $scope.campeonatoGerado = true;
+			// $window.location.href = '/#/campeonato/gera';
 		} , function (response){
 			erro("Error: " + status);
 		});

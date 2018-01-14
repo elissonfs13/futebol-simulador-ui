@@ -83,7 +83,7 @@ public class SelecaoService {
 		cadastraSelecao("País de Gales", "PGA", "WA.png", Confederacao.UEFA, new Integer(3));
 		cadastraSelecao("Polônia", "POL", "PL.png", Confederacao.UEFA, new Integer(4));
 		cadastraSelecao("Portugal", "POR", "PT.png", Confederacao.UEFA, new Integer(5));
-		cadastraSelecao("Rep. Tcheca", "RTC", ".png", Confederacao.UEFA, new Integer(3));
+		cadastraSelecao("Rep. Tcheca", "RTC", "CZ.png", Confederacao.UEFA, new Integer(3));
 		cadastraSelecao("Romênia", "ROM", "RO.png", Confederacao.UEFA, new Integer(2));
 		cadastraSelecao("Rússia", "RUS", "RU.png", Confederacao.UEFA, new Integer(3));
 		cadastraSelecao("Sérvia", "SER", "RS.png", Confederacao.UEFA, new Integer(4));

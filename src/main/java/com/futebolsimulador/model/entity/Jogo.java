@@ -3,7 +3,6 @@ package com.futebolsimulador.model.entity;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,7 +26,6 @@ public class Jogo implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "jogo_id")
 	private Long id;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
@@ -53,16 +51,22 @@ public class Jogo implements Serializable {
     @JoinColumn(name="campeonato_id")
     @JsonBackReference
 	private Campeonato campeonato;
-
-	public Long getId() {
-		return id;
-	}
-
+	
 	public Jogo(Selecao selecao1, Selecao selecao2, Boolean podeEmpatar) {
 		super();
 		this.selecao1 = selecao1;
 		this.selecao2 = selecao2;
 		this.podeEmpatar = podeEmpatar;
+		this.gols1 = new Integer(0);
+		this.gols2 = new Integer(0);
+	}
+
+	public Jogo() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public void setId(Long id) {

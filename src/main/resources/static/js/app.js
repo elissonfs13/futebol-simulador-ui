@@ -14,9 +14,6 @@ appSimulador.config(function($routeProvider, $locationProvider) {
 		templateUrl : 'view/selecao/cadastroselecao.html',
 		controller : 'cadastroSelecaoController'
 	}).when("/campeonato/seleciona", {
-		templateUrl : 'view/campeonato/selecionaselecao.html',
-		controller : 'campeonatoController'
-	}).when("/campeonato/gera", {
 		templateUrl : 'view/campeonato/campeonato.html',
 		controller : 'campeonatoController'
 	}).otherwise({
