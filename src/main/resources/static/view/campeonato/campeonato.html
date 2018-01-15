@@ -1,45 +1,76 @@
-<div class="col-sm-12" nf-if="!campeonatoGerado" ng-init="listarSelecoes()">
-    <section class="panel">
-        <header class="panel-heading no-border">
+<div ng-init="listarSelecoes()">
+	<section class="wrapper">            
+	  <!--overview start-->
+	  <div class="row">
+		<div class="col-lg-12">
+			<h3 class="page-header"><i class="fa fa-laptop"></i> Campeonato</h3>
+			<ol class="breadcrumb">
+				<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+				<li><i class="fa fa-laptop"></i>Campeonato</li>						  	
+			</ol>
+		</div>
+	  </div>
+	</section>
+	<section class="panel">
+		<header class="panel-heading no-border">
             Selecionador de Seleções
         </header>
         <div class="panel-body">
           <div class="row">
             <div class="col-sm-12">
-            <p>{{selecoesSelecionadas.length}} seleções selecionadas</p>
+            	<p>{{selecoesSelecionadas.length}} seleções selecionadas</p>
             </div> 
-        </div>
+          </div>
           <div class="row">
             <div class="col-sm-6">
             <div class="panel-body">
               <div class="text" ng-repeat="selecao in selecoes">  
-              <a ng-click="seleciona(selecao)" class="activity-img" data-toggle="tooltip" data-placement="top" title="{{selecao.abrev}}">
-                <img ng-src="img/bandeiras/{{selecao.bandeira}}"/>
-              </a>
+	              <a ng-click="seleciona(selecao)" class="activity-img" data-toggle="tooltip" data-placement="top" title="{{selecao.abrev}}">
+	                <img ng-src="img/bandeiras/{{selecao.bandeira}}"/>
+	              </a>
               </div>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="panel-body">
               <div class="text" ng-repeat="selecao in selecoesSelecionadas">  
-              <a ng-click="deseleciona(selecao)" class="activity-img" data-toggle="tooltip" data-placement="top" title="{{selecao.abrev}}">
-                <img ng-src="img/bandeiras/{{selecao.bandeira}}"/>
-              </a>
+	              <a ng-click="deseleciona(selecao)" class="activity-img" data-toggle="tooltip" data-placement="top" title="{{selecao.abrev}}">
+	                <img ng-src="img/bandeiras/{{selecao.bandeira}}"/>
+	              </a>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-            <div class="col-sm-12" ng-if="campeonatoCompleto()">
-            <a class="btn btn-primary" ng-click="gerarCampeonato()" title="Bootstrap 3 themes generator">Gerar Campeonato</a>
+            <div class="col-sm-12" style="padding-top: 10px; text-align: center;" ng-if="campeonatoCompleto()">
+            	<a class="btn btn-primary" ng-click="gerarCampeonato()" title="Bootstrap 3 themes generator">Gerar Campeonato</a>
             </div>
         </div>
-    </div>
     </section>
-</div>
-
-<div nf-if="campeonatoGerado">
-	  <section class="panel">
+    <section class="panel">
+        <header class="panel-heading no-border">
+            Classificação Final
+        </header>
+	    <div class="row" style="margin-left: 0px;">
+	    	<div class="col-sm-3">
+	    		<h4 class="alert-heading">Campeão</h4>
+	    		<p><img ng-src="img/bandeiras/{{campeonato.primeiro.bandeira}}"/> {{campeonato.primeiro.nome}}</p>
+	    	</div>
+	    	<div class="col-sm-3">
+	    		<h4 class="alert-heading">Vice Campeão</h4>
+	    		<p><img ng-src="img/bandeiras/{{campeonato.segundo.bandeira}}"/> {{campeonato.segundo.nome}}</p>
+	    	</div>
+	    	<div class="col-sm-3">
+	    		<h4 class="alert-heading">3º Lugar</h4>
+	    		<p><img ng-src="img/bandeiras/{{campeonato.terceiro.bandeira}}"/> {{campeonato.terceiro.nome}}</p>
+	    	</div>
+	    	<div class="col-sm-3">
+	    		<h4 class="alert-heading">4º Lugar</h4>
+	    		<p><img ng-src="img/bandeiras/{{campeonato.quarto.bandeira}}"/> {{campeonato.quarto.nome}}</p>
+	    	</div>
+	    </div>
+	</section>
+	<section class="panel">
         <div class="row">
           <div class="col-sm-6">
             <section class="panel">
@@ -178,40 +209,40 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].classificacao}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.infoSelecoes[0].selecao.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].selecao.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].pontos}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].saldoGols}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].golsMarcados}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.infoSelecoes[0].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].classificacao}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.infoSelecoes[1].selecao.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].selecao.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].pontos}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].saldoGols}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].golsMarcados}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.infoSelecoes[1].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].classificacao}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.infoSelecoes[2].selecao.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].selecao.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].pontos}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].saldoGols}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].golsMarcados}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.infoSelecoes[2].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].classificacao}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.infoSelecoes[3].selecao.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].selecao.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].pontos}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].saldoGols}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].golsMarcados}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.infoSelecoes[3].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].golsSofridos}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -220,58 +251,58 @@
               <table class="table">
                 <tbody>
                  <tr>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[0].selecao1.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[0].selecao1.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[0].gols1}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[0].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[0].gols1}}</td>
                     <td style="vertical-align: middle;">X</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[0].gols2}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[0].selecao2.nome}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[0].selecao2.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[0].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[1].selecao1.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[1].selecao1.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[1].gols1}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[1].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[1].gols1}}</td>
                     <td style="vertical-align: middle;">X</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[1].gols2}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[1].selecao2.nome}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[1].selecao2.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[1].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[2].selecao1.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[2].selecao1.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[2].gols1}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[2].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[2].gols1}}</td>
                     <td style="vertical-align: middle;">X</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[2].gols2}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[2].selecao2.nome}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[2].selecao2.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[2].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[3].selecao1.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[3].selecao1.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[3].gols1}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[3].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[3].gols1}}</td>
                     <td style="vertical-align: middle;">X</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[3].gols2}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[3].selecao2.nome}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[3].selecao2.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[3].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[4].selecao1.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[4].selecao1.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[4].gols1}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[4].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[4].gols1}}</td>
                     <td style="vertical-align: middle;">X</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[4].gols2}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[4].selecao2.nome}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[4].selecao2.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[4].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[5].selecao1.bandeira}}"/></td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[5].selecao1.nome}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[5].gols1}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[5].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[5].gols1}}</td>
                     <td style="vertical-align: middle;">X</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[5].gols2}}</td>
-                    <td style="vertical-align: middle;">{{grupoA.jogos[5].selecao2.nome}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoA.jogos[5].selecao2.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[5].selecao2.bandeira}}"/></td>
                   </tr>
                 </tbody>
               </table>
@@ -288,96 +319,110 @@
                 <thead>
                   <tr>
                     <th>Pos.</th>
+                    <th></th>
                     <th>Seleção</th>
-                    <th>Pontos</th>
-                    <th>Saldo</th>
+                    <th>Pts</th>
+                    <th>SG</th>
                     <th>GP</th>
                     <th>GC</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{grupoC.infoSelecoes[0].classificacao}}</td>
-                    <td>{{grupoC.infoSelecoes[0].selecao.nome}}</td>
-                    <td>{{grupoC.infoSelecoes[0].pontos}}</td>
-                    <td>{{grupoC.infoSelecoes[0].saldoGols}}</td>
-                    <td>{{grupoC.infoSelecoes[0].golsMarcados}}</td>
-                    <td>{{grupoC.infoSelecoes[0].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.infoSelecoes[0].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoC.infoSelecoes[1].classificacao}}</td>
-                    <td>{{grupoC.infoSelecoes[1].selecao.nome}}</td>
-                    <td>{{grupoC.infoSelecoes[1].pontos}}</td>
-                    <td>{{grupoC.infoSelecoes[1].saldoGols}}</td>
-                    <td>{{grupoC.infoSelecoes[1].golsMarcados}}</td>
-                    <td>{{grupoC.infoSelecoes[1].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.infoSelecoes[1].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoC.infoSelecoes[2].classificacao}}</td>
-                    <td>{{grupoC.infoSelecoes[2].selecao.nome}}</td>
-                    <td>{{grupoC.infoSelecoes[2].pontos}}</td>
-                    <td>{{grupoC.infoSelecoes[2].saldoGols}}</td>
-                    <td>{{grupoC.infoSelecoes[2].golsMarcados}}</td>
-                    <td>{{grupoC.infoSelecoes[2].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.infoSelecoes[2].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoC.infoSelecoes[3].classificacao}}</td>
-                    <td>{{grupoC.infoSelecoes[3].selecao.nome}}</td>
-                    <td>{{grupoC.infoSelecoes[3].pontos}}</td>
-                    <td>{{grupoC.infoSelecoes[3].saldoGols}}</td>
-                    <td>{{grupoC.infoSelecoes[3].golsMarcados}}</td>
-                    <td>{{grupoC.infoSelecoes[3].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.infoSelecoes[3].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].golsSofridos}}</td>
                   </tr>
                 </tbody>
               </table>
             </section>
             <section class="panel">
-              <header class="panel-heading">
-                Jogos
-              </header>
               <table class="table">
                 <tbody>
                  <tr>
-                    <td>{{grupoC.jogos[0].selecao1.nome}}</td>
-                    <td>{{grupoC.jogos[0].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoC.jogos[0].gols2}}</td>
-                    <td>{{grupoC.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[0].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[0].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoC.jogos[1].selecao1.nome}}</td>
-                    <td>{{grupoC.jogos[1].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoC.jogos[1].gols2}}</td>
-                    <td>{{grupoC.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[1].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[1].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoC.jogos[2].selecao1.nome}}</td>
-                    <td>{{grupoC.jogos[2].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoC.jogos[2].gols2}}</td>
-                    <td>{{grupoC.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[2].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[2].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoC.jogos[3].selecao1.nome}}</td>
-                    <td>{{grupoC.jogos[3].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoC.jogos[3].gols2}}</td>
-                    <td>{{grupoC.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[3].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[3].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoC.jogos[4].selecao1.nome}}</td>
-                    <td>{{grupoC.jogos[4].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoC.jogos[4].gols2}}</td>
-                    <td>{{grupoC.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[4].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[4].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoC.jogos[5].selecao1.nome}}</td>
-                    <td>{{grupoC.jogos[5].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoC.jogos[5].gols2}}</td>
-                    <td>{{grupoC.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[5].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoC.jogos[5].selecao2.bandeira}}"/></td>
                   </tr>
                 </tbody>
               </table>
@@ -392,96 +437,110 @@
                 <thead>
                   <tr>
                     <th>Pos.</th>
+                    <th></th>
                     <th>Seleção</th>
-                    <th>Pontos</th>
-                    <th>Saldo</th>
+                    <th>Pts</th>
+                    <th>SG</th>
                     <th>GP</th>
                     <th>GC</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{grupoD.infoSelecoes[0].classificacao}}</td>
-                    <td>{{grupoD.infoSelecoes[0].selecao.nome}}</td>
-                    <td>{{grupoD.infoSelecoes[0].pontos}}</td>
-                    <td>{{grupoD.infoSelecoes[0].saldoGols}}</td>
-                    <td>{{grupoD.infoSelecoes[0].golsMarcados}}</td>
-                    <td>{{grupoD.infoSelecoes[0].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.infoSelecoes[0].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoD.infoSelecoes[1].classificacao}}</td>
-                    <td>{{grupoD.infoSelecoes[1].selecao.nome}}</td>
-                    <td>{{grupoD.infoSelecoes[1].pontos}}</td>
-                    <td>{{grupoD.infoSelecoes[1].saldoGols}}</td>
-                    <td>{{grupoD.infoSelecoes[1].golsMarcados}}</td>
-                    <td>{{grupoD.infoSelecoes[1].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.infoSelecoes[1].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoD.infoSelecoes[2].classificacao}}</td>
-                    <td>{{grupoD.infoSelecoes[2].selecao.nome}}</td>
-                    <td>{{grupoD.infoSelecoes[2].pontos}}</td>
-                    <td>{{grupoD.infoSelecoes[2].saldoGols}}</td>
-                    <td>{{grupoD.infoSelecoes[2].golsMarcados}}</td>
-                    <td>{{grupoD.infoSelecoes[2].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.infoSelecoes[2].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoD.infoSelecoes[3].classificacao}}</td>
-                    <td>{{grupoD.infoSelecoes[3].selecao.nome}}</td>
-                    <td>{{grupoD.infoSelecoes[3].pontos}}</td>
-                    <td>{{grupoD.infoSelecoes[3].saldoGols}}</td>
-                    <td>{{grupoD.infoSelecoes[3].golsMarcados}}</td>
-                    <td>{{grupoD.infoSelecoes[3].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.infoSelecoes[3].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].golsSofridos}}</td>
                   </tr>
                 </tbody>
               </table>
             </section>
             <section class="panel">
-              <header class="panel-heading">
-                Jogos
-              </header>
               <table class="table">
                 <tbody>
                  <tr>
-                    <td>{{grupoD.jogos[0].selecao1.nome}}</td>
-                    <td>{{grupoD.jogos[0].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoD.jogos[0].gols2}}</td>
-                    <td>{{grupoD.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[0].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[0].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoD.jogos[1].selecao1.nome}}</td>
-                    <td>{{grupoD.jogos[1].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoD.jogos[1].gols2}}</td>
-                    <td>{{grupoD.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[1].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[1].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoD.jogos[2].selecao1.nome}}</td>
-                    <td>{{grupoD.jogos[2].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoD.jogos[2].gols2}}</td>
-                    <td>{{grupoD.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[2].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[2].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoD.jogos[3].selecao1.nome}}</td>
-                    <td>{{grupoD.jogos[3].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoD.jogos[3].gols2}}</td>
-                    <td>{{grupoD.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[3].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[3].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoD.jogos[4].selecao1.nome}}</td>
-                    <td>{{grupoD.jogos[4].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoD.jogos[4].gols2}}</td>
-                    <td>{{grupoD.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[4].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[4].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoD.jogos[5].selecao1.nome}}</td>
-                    <td>{{grupoD.jogos[5].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoD.jogos[5].gols2}}</td>
-                    <td>{{grupoD.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[5].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoD.jogos[5].selecao2.bandeira}}"/></td>
                   </tr>
                 </tbody>
               </table>
@@ -498,96 +557,110 @@
                 <thead>
                   <tr>
                     <th>Pos.</th>
+                    <th></th>
                     <th>Seleção</th>
-                    <th>Pontos</th>
-                    <th>Saldo</th>
+                    <th>Pts</th>
+                    <th>SG</th>
                     <th>GP</th>
                     <th>GC</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{grupoE.infoSelecoes[0].classificacao}}</td>
-                    <td>{{grupoE.infoSelecoes[0].selecao.nome}}</td>
-                    <td>{{grupoE.infoSelecoes[0].pontos}}</td>
-                    <td>{{grupoE.infoSelecoes[0].saldoGols}}</td>
-                    <td>{{grupoE.infoSelecoes[0].golsMarcados}}</td>
-                    <td>{{grupoE.infoSelecoes[0].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.infoSelecoes[0].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoE.infoSelecoes[1].classificacao}}</td>
-                    <td>{{grupoE.infoSelecoes[1].selecao.nome}}</td>
-                    <td>{{grupoE.infoSelecoes[1].pontos}}</td>
-                    <td>{{grupoE.infoSelecoes[1].saldoGols}}</td>
-                    <td>{{grupoE.infoSelecoes[1].golsMarcados}}</td>
-                    <td>{{grupoE.infoSelecoes[1].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.infoSelecoes[1].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoE.infoSelecoes[2].classificacao}}</td>
-                    <td>{{grupoE.infoSelecoes[2].selecao.nome}}</td>
-                    <td>{{grupoE.infoSelecoes[2].pontos}}</td>
-                    <td>{{grupoE.infoSelecoes[2].saldoGols}}</td>
-                    <td>{{grupoE.infoSelecoes[2].golsMarcados}}</td>
-                    <td>{{grupoE.infoSelecoes[2].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.infoSelecoes[2].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoE.infoSelecoes[3].classificacao}}</td>
-                    <td>{{grupoE.infoSelecoes[3].selecao.nome}}</td>
-                    <td>{{grupoE.infoSelecoes[3].pontos}}</td>
-                    <td>{{grupoE.infoSelecoes[3].saldoGols}}</td>
-                    <td>{{grupoE.infoSelecoes[3].golsMarcados}}</td>
-                    <td>{{grupoE.infoSelecoes[3].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.infoSelecoes[3].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].golsSofridos}}</td>
                   </tr>
                 </tbody>
               </table>
             </section>
             <section class="panel">
-              <header class="panel-heading">
-                Jogos
-              </header>
               <table class="table">
                 <tbody>
                  <tr>
-                    <td>{{grupoE.jogos[0].selecao1.nome}}</td>
-                    <td>{{grupoE.jogos[0].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoE.jogos[0].gols2}}</td>
-                    <td>{{grupoE.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[0].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[0].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoE.jogos[1].selecao1.nome}}</td>
-                    <td>{{grupoE.jogos[1].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoE.jogos[1].gols2}}</td>
-                    <td>{{grupoE.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[1].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[1].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoE.jogos[2].selecao1.nome}}</td>
-                    <td>{{grupoE.jogos[2].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoE.jogos[2].gols2}}</td>
-                    <td>{{grupoE.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[2].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[2].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoE.jogos[3].selecao1.nome}}</td>
-                    <td>{{grupoE.jogos[3].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoE.jogos[3].gols2}}</td>
-                    <td>{{grupoE.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[3].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[3].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoE.jogos[4].selecao1.nome}}</td>
-                    <td>{{grupoE.jogos[4].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoE.jogos[4].gols2}}</td>
-                    <td>{{grupoE.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[4].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[4].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoE.jogos[5].selecao1.nome}}</td>
-                    <td>{{grupoE.jogos[5].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoE.jogos[5].gols2}}</td>
-                    <td>{{grupoE.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[5].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoE.jogos[5].selecao2.bandeira}}"/></td>
                   </tr>
                 </tbody>
               </table>
@@ -602,96 +675,110 @@
                 <thead>
                   <tr>
                     <th>Pos.</th>
+                    <th></th>
                     <th>Seleção</th>
-                    <th>Pontos</th>
-                    <th>Saldo</th>
+                    <th>Pts</th>
+                    <th>SG</th>
                     <th>GP</th>
                     <th>GC</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{grupoF.infoSelecoes[0].classificacao}}</td>
-                    <td>{{grupoF.infoSelecoes[0].selecao.nome}}</td>
-                    <td>{{grupoF.infoSelecoes[0].pontos}}</td>
-                    <td>{{grupoF.infoSelecoes[0].saldoGols}}</td>
-                    <td>{{grupoF.infoSelecoes[0].golsMarcados}}</td>
-                    <td>{{grupoF.infoSelecoes[0].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.infoSelecoes[0].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoF.infoSelecoes[1].classificacao}}</td>
-                    <td>{{grupoF.infoSelecoes[1].selecao.nome}}</td>
-                    <td>{{grupoF.infoSelecoes[1].pontos}}</td>
-                    <td>{{grupoF.infoSelecoes[1].saldoGols}}</td>
-                    <td>{{grupoF.infoSelecoes[1].golsMarcados}}</td>
-                    <td>{{grupoF.infoSelecoes[1].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.infoSelecoes[1].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoF.infoSelecoes[2].classificacao}}</td>
-                    <td>{{grupoF.infoSelecoes[2].selecao.nome}}</td>
-                    <td>{{grupoF.infoSelecoes[2].pontos}}</td>
-                    <td>{{grupoF.infoSelecoes[2].saldoGols}}</td>
-                    <td>{{grupoF.infoSelecoes[2].golsMarcados}}</td>
-                    <td>{{grupoF.infoSelecoes[2].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.infoSelecoes[2].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoF.infoSelecoes[3].classificacao}}</td>
-                    <td>{{grupoF.infoSelecoes[3].selecao.nome}}</td>
-                    <td>{{grupoF.infoSelecoes[3].pontos}}</td>
-                    <td>{{grupoF.infoSelecoes[3].saldoGols}}</td>
-                    <td>{{grupoF.infoSelecoes[3].golsMarcados}}</td>
-                    <td>{{grupoF.infoSelecoes[3].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.infoSelecoes[3].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].golsSofridos}}</td>
                   </tr>
                 </tbody>
               </table>
             </section>
             <section class="panel">
-              <header class="panel-heading">
-                Jogos
-              </header>
               <table class="table">
                 <tbody>
                  <tr>
-                    <td>{{grupoF.jogos[0].selecao1.nome}}</td>
-                    <td>{{grupoF.jogos[0].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoF.jogos[0].gols2}}</td>
-                    <td>{{grupoF.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[0].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[0].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoF.jogos[1].selecao1.nome}}</td>
-                    <td>{{grupoF.jogos[1].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoF.jogos[1].gols2}}</td>
-                    <td>{{grupoF.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[1].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[1].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoF.jogos[2].selecao1.nome}}</td>
-                    <td>{{grupoF.jogos[2].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoF.jogos[2].gols2}}</td>
-                    <td>{{grupoF.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[2].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[2].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoF.jogos[3].selecao1.nome}}</td>
-                    <td>{{grupoF.jogos[3].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoF.jogos[3].gols2}}</td>
-                    <td>{{grupoF.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[3].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[3].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoF.jogos[4].selecao1.nome}}</td>
-                    <td>{{grupoF.jogos[4].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoF.jogos[4].gols2}}</td>
-                    <td>{{grupoF.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[4].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[4].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoF.jogos[5].selecao1.nome}}</td>
-                    <td>{{grupoF.jogos[5].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoF.jogos[5].gols2}}</td>
-                    <td>{{grupoF.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[5].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[5].selecao2.bandeira}}"/></td>
                   </tr>
                 </tbody>
               </table>
@@ -708,96 +795,110 @@
                 <thead>
                   <tr>
                     <th>Pos.</th>
+                    <th></th>
                     <th>Seleção</th>
-                    <th>Pontos</th>
-                    <th>Saldo</th>
+                    <th>Pts</th>
+                    <th>SG</th>
                     <th>GP</th>
                     <th>GC</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{grupoG.infoSelecoes[0].classificacao}}</td>
-                    <td>{{grupoG.infoSelecoes[0].selecao.nome}}</td>
-                    <td>{{grupoG.infoSelecoes[0].pontos}}</td>
-                    <td>{{grupoG.infoSelecoes[0].saldoGols}}</td>
-                    <td>{{grupoG.infoSelecoes[0].golsMarcados}}</td>
-                    <td>{{grupoG.infoSelecoes[0].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.infoSelecoes[0].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoG.infoSelecoes[1].classificacao}}</td>
-                    <td>{{grupoG.infoSelecoes[1].selecao.nome}}</td>
-                    <td>{{grupoG.infoSelecoes[1].pontos}}</td>
-                    <td>{{grupoG.infoSelecoes[1].saldoGols}}</td>
-                    <td>{{grupoG.infoSelecoes[1].golsMarcados}}</td>
-                    <td>{{grupoG.infoSelecoes[1].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.infoSelecoes[1].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoG.infoSelecoes[2].classificacao}}</td>
-                    <td>{{grupoG.infoSelecoes[2].selecao.nome}}</td>
-                    <td>{{grupoG.infoSelecoes[2].pontos}}</td>
-                    <td>{{grupoG.infoSelecoes[2].saldoGols}}</td>
-                    <td>{{grupoG.infoSelecoes[2].golsMarcados}}</td>
-                    <td>{{grupoG.infoSelecoes[2].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.infoSelecoes[2].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoG.infoSelecoes[3].classificacao}}</td>
-                    <td>{{grupoG.infoSelecoes[3].selecao.nome}}</td>
-                    <td>{{grupoG.infoSelecoes[3].pontos}}</td>
-                    <td>{{grupoG.infoSelecoes[3].saldoGols}}</td>
-                    <td>{{grupoG.infoSelecoes[3].golsMarcados}}</td>
-                    <td>{{grupoG.infoSelecoes[3].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.infoSelecoes[3].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].golsSofridos}}</td>
                   </tr>
                 </tbody>
               </table>
             </section>
             <section class="panel">
-              <header class="panel-heading">
-                Jogos
-              </header>
               <table class="table">
                 <tbody>
                  <tr>
-                    <td>{{grupoG.jogos[0].selecao1.nome}}</td>
-                    <td>{{grupoG.jogos[0].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoG.jogos[0].gols2}}</td>
-                    <td>{{grupoG.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[0].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[0].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoG.jogos[1].selecao1.nome}}</td>
-                    <td>{{grupoG.jogos[1].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoG.jogos[1].gols2}}</td>
-                    <td>{{grupoG.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[1].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[1].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoG.jogos[2].selecao1.nome}}</td>
-                    <td>{{grupoG.jogos[2].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoG.jogos[2].gols2}}</td>
-                    <td>{{grupoG.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[2].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[2].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoG.jogos[3].selecao1.nome}}</td>
-                    <td>{{grupoG.jogos[3].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoG.jogos[3].gols2}}</td>
-                    <td>{{grupoG.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[3].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[3].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoG.jogos[4].selecao1.nome}}</td>
-                    <td>{{grupoG.jogos[4].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoG.jogos[4].gols2}}</td>
-                    <td>{{grupoG.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[4].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[4].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoG.jogos[5].selecao1.nome}}</td>
-                    <td>{{grupoG.jogos[5].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoG.jogos[5].gols2}}</td>
-                    <td>{{grupoG.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[5].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoG.jogos[5].selecao2.bandeira}}"/></td>
                   </tr>
                 </tbody>
               </table>
@@ -812,105 +913,118 @@
                 <thead>
                   <tr>
                     <th>Pos.</th>
+                    <th></th>
                     <th>Seleção</th>
-                    <th>Pontos</th>
-                    <th>Saldo</th>
+                    <th>Pts</th>
+                    <th>SG</th>
                     <th>GP</th>
                     <th>GC</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{grupoH.infoSelecoes[0].classificacao}}</td>
-                    <td>{{grupoH.infoSelecoes[0].selecao.nome}}</td>
-                    <td>{{grupoH.infoSelecoes[0].pontos}}</td>
-                    <td>{{grupoH.infoSelecoes[0].saldoGols}}</td>
-                    <td>{{grupoH.infoSelecoes[0].golsMarcados}}</td>
-                    <td>{{grupoH.infoSelecoes[0].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.infoSelecoes[0].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoH.infoSelecoes[1].classificacao}}</td>
-                    <td>{{grupoH.infoSelecoes[1].selecao.nome}}</td>
-                    <td>{{grupoH.infoSelecoes[1].pontos}}</td>
-                    <td>{{grupoH.infoSelecoes[1].saldoGols}}</td>
-                    <td>{{grupoH.infoSelecoes[1].golsMarcados}}</td>
-                    <td>{{grupoH.infoSelecoes[1].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.infoSelecoes[1].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoH.infoSelecoes[2].classificacao}}</td>
-                    <td>{{grupoH.infoSelecoes[2].selecao.nome}}</td>
-                    <td>{{grupoH.infoSelecoes[2].pontos}}</td>
-                    <td>{{grupoH.infoSelecoes[2].saldoGols}}</td>
-                    <td>{{grupoH.infoSelecoes[2].golsMarcados}}</td>
-                    <td>{{grupoH.infoSelecoes[2].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.infoSelecoes[2].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].golsSofridos}}</td>
                   </tr>
                   <tr>
-                    <td>{{grupoH.infoSelecoes[3].classificacao}}</td>
-                    <td>{{grupoH.infoSelecoes[3].selecao.nome}}</td>
-                    <td>{{grupoH.infoSelecoes[3].pontos}}</td>
-                    <td>{{grupoH.infoSelecoes[3].saldoGols}}</td>
-                    <td>{{grupoH.infoSelecoes[3].golsMarcados}}</td>
-                    <td>{{grupoH.infoSelecoes[3].golsSofridos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.infoSelecoes[3].selecao.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].golsSofridos}}</td>
                   </tr>
                 </tbody>
               </table>
             </section>
             <section class="panel">
-              <header class="panel-heading">
-                Jogos
-              </header>
               <table class="table">
                 <tbody>
                  <tr>
-                    <td>{{grupoH.jogos[0].selecao1.nome}}</td>
-                    <td>{{grupoH.jogos[0].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoH.jogos[0].gols2}}</td>
-                    <td>{{grupoH.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[0].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[0].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoH.jogos[1].selecao1.nome}}</td>
-                    <td>{{grupoH.jogos[1].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoH.jogos[1].gols2}}</td>
-                    <td>{{grupoH.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[1].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[1].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoH.jogos[2].selecao1.nome}}</td>
-                    <td>{{grupoH.jogos[2].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoH.jogos[2].gols2}}</td>
-                    <td>{{grupoH.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[2].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[2].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoH.jogos[3].selecao1.nome}}</td>
-                    <td>{{grupoH.jogos[3].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoH.jogos[3].gols2}}</td>
-                    <td>{{grupoH.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[3].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[3].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoH.jogos[4].selecao1.nome}}</td>
-                    <td>{{grupoH.jogos[4].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoH.jogos[4].gols2}}</td>
-                    <td>{{grupoH.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[4].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[4].selecao2.bandeira}}"/></td>
                   </tr>
                   <tr>
-                    <td>{{grupoH.jogos[5].selecao1.nome}}</td>
-                    <td>{{grupoH.jogos[5].gols1}}</td>
-                    <td>X</td>
-                    <td>{{grupoH.jogos[5].gols2}}</td>
-                    <td>{{grupoH.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[5].selecao1.bandeira}}"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoH.jogos[5].selecao2.bandeira}}"/></td>
                   </tr>
                 </tbody>
               </table>
             </section>
           </div>
         </div>
-
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <section class="panel">
               <header class="panel-heading">
                 Oitavas de Finais
@@ -919,71 +1033,84 @@
                 <table class="table">
                   <tbody>
                     <tr>
-                      <td>{{oitavas[0].selecao1.nome}}</td>
-                      <td>{{oitavas[0].gols1}}</td>
-                      <td>X</td>
-                      <td>{{oitavas[0].gols2}}</td>
-                      <td>{{oitavas[0].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[0].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[0].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[0].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[0].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[0].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[0].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{oitavas[1].selecao1.nome}}</td>
-                      <td>{{oitavas[1].gols1}}</td>
-                      <td>X</td>
-                      <td>{{oitavas[1].gols2}}</td>
-                      <td>{{oitavas[1].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[1].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[1].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[1].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[1].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[1].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[1].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{oitavas[2].selecao1.nome}}</td>
-                      <td>{{oitavas[2].gols1}}</td>
-                      <td>X</td>
-                      <td>{{oitavas[2].gols2}}</td>
-                      <td>{{oitavas[2].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[2].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[2].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[2].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[2].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[2].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[2].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{oitavas[3].selecao1.nome}}</td>
-                      <td>{{oitavas[3].gols1}}</td>
-                      <td>X</td>
-                      <td>{{oitavas[3].gols2}}</td>
-                      <td>{{oitavas[3].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[3].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[3].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[3].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[3].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[3].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[3].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{oitavas[4].selecao1.nome}}</td>
-                      <td>{{oitavas[4].gols1}}</td>
-                      <td>X</td>
-                      <td>{{oitavas[4].gols2}}</td>
-                      <td>{{oitavas[4].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[4].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[4].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[4].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[4].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[4].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[4].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{oitavas[5].selecao1.nome}}</td>
-                      <td>{{oitavas[5].gols1}}</td>
-                      <td>X</td>
-                      <td>{{oitavas[5].gols2}}</td>
-                      <td>{{oitavas[5].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[5].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[5].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[5].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[5].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[5].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[5].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{oitavas[6].selecao1.nome}}</td>
-                      <td>{{oitavas[6].gols1}}</td>
-                      <td>X</td>
-                      <td>{{oitavas[6].gols2}}</td>
-                      <td>{{oitavas[6].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[6].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[6].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[6].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[6].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[6].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[6].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{oitavas[7].selecao1.nome}}</td>
-                      <td>{{oitavas[7].gols1}}</td>
-                      <td>X</td>
-                      <td>{{oitavas[7].gols2}}</td>
-                      <td>{{oitavas[7].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[7].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[7].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[7].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[7].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[7].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{oitavas[7].selecao2.bandeira}}"/></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-
             </section>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <section class="panel">
               <header class="panel-heading">
                 Quartas de Finais
@@ -992,42 +1119,46 @@
                 <table class="table">
                   <tbody>
                     <tr>
-                      <td>{{quartas[0].selecao1.nome}}</td>
-                      <td>{{quartas[0].gols1}}</td>
-                      <td>X</td>
-                      <td>{{quartas[0].gols2}}</td>
-                      <td>{{quartas[0].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{quartas[0].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{quartas[0].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{quartas[0].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{quartas[0].gols2}}</td>
+                      <td style="vertical-align: middle;">{{quartas[0].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{quartas[0].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{quartas[1].selecao1.nome}}</td>
-                      <td>{{quartas[1].gols1}}</td>
-                      <td>X</td>
-                      <td>{{quartas[1].gols2}}</td>
-                      <td>{{quartas[1].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{quartas[1].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{quartas[1].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{quartas[1].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{quartas[1].gols2}}</td>
+                      <td style="vertical-align: middle;">{{quartas[1].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{quartas[1].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{quartas[2].selecao1.nome}}</td>
-                      <td>{{quartas[2].gols1}}</td>
-                      <td>X</td>
-                      <td>{{quartas[2].gols2}}</td>
-                      <td>{{quartas[2].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{quartas[2].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{quartas[2].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{quartas[2].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{quartas[2].gols2}}</td>
+                      <td style="vertical-align: middle;">{{quartas[2].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{quartas[2].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{quartas[3].selecao1.nome}}</td>
-                      <td>{{quartas[3].gols1}}</td>
-                      <td>X</td>
-                      <td>{{quartas[3].gols2}}</td>
-                      <td>{{quartas[3].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{quartas[3].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{quartas[3].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{quartas[3].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{quartas[3].gols2}}</td>
+                      <td style="vertical-align: middle;">{{quartas[3].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{quartas[3].selecao2.bandeira}}"/></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </section>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
                 Semi Finais
@@ -1036,18 +1167,22 @@
                 <table class="table">
                   <tbody>
                     <tr>
-                      <td>{{semis[0].selecao1.nome}}</td>
-                      <td>{{semis[0].gols1}}</td>
-                      <td>X</td>
-                      <td>{{semis[0].gols2}}</td>
-                      <td>{{semis[0].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{semis[0].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{semis[0].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{semis[0].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{semis[0].gols2}}</td>
+                      <td style="vertical-align: middle;">{{semis[0].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{semis[0].selecao2.bandeira}}"/></td>
                     </tr>
                     <tr>
-                      <td>{{semis[1].selecao1.nome}}</td>
-                      <td>{{semis[1].gols1}}</td>
-                      <td>X</td>
-                      <td>{{semis[1].gols2}}</td>
-                      <td>{{semis[1].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{semis[1].selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{semis[1].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{semis[1].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{semis[1].gols2}}</td>
+                      <td style="vertical-align: middle;">{{semis[1].selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{semis[1].selecao2.bandeira}}"/></td>
                     </tr>
                   </tbody>
                 </table>
@@ -1057,7 +1192,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <section class="panel">
               <header class="panel-heading">
                 Disputa do terceiro e quarto lugares
@@ -1066,21 +1201,21 @@
                 <table class="table">
                   <tbody>
                     <tr>
-                      <td>{{terceiroQuarto.selecao1.nome}}</td>
-                      <td>{{terceiroQuarto.gols1}}</td>
-                      <td>X</td>
-                      <td>{{terceiroQuarto.gols2}}</td>
-                      <td>{{terceiroQuarto.selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{terceiroQuarto.selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{terceiroQuarto.selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{terceiroQuarto.gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{terceiroQuarto.gols2}}</td>
+                      <td style="vertical-align: middle;">{{terceiroQuarto.selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{terceiroQuarto.selecao2.bandeira}}"/></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </section>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <section class="panel">
               <header class="panel-heading">
                 Final
@@ -1089,11 +1224,13 @@
                 <table class="table">
                   <tbody>
                     <tr>
-                      <td>{{finalCampeonato.selecao1.nome}}</td>
-                      <td>{{finalCampeonato.gols1}}</td>
-                      <td>X</td>
-                      <td>{{finalCampeonato.gols2}}</td>
-                      <td>{{finalCampeonato.selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{finalCampeonato.selecao1.bandeira}}"/></td>
+                      <td style="vertical-align: middle;">{{finalCampeonato.selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{finalCampeonato.gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{finalCampeonato.gols2}}</td>
+                      <td style="vertical-align: middle;">{{finalCampeonato.selecao2.nome}}</td>
+                      <td class="text-center"><img ng-src="img/bandeiras/{{finalCampeonato.selecao2.bandeira}}"/></td>
                     </tr>
                   </tbody>
                 </table>

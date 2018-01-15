@@ -16,6 +16,12 @@ appSimulador.config(function($routeProvider, $locationProvider) {
 	}).when("/campeonato/seleciona", {
 		templateUrl : 'view/campeonato/campeonato.html',
 		controller : 'campeonatoController'
+	}).when("/campeonato/lista", {
+		templateUrl : 'view/campeonato/listacampeonato.html',
+		controller : 'listaCampeonatoController'
+	}).when("/campeonato/:campeonatoId", {
+		templateUrl : 'view/campeonato/campeonato.html',
+		controller : 'campeonatoController'
 	}).otherwise({
 		rediretTo : '/'
 	});

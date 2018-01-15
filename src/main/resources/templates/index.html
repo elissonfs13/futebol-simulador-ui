@@ -17,6 +17,7 @@
 	<script src="./js/controller/cadastroselecao-controller.js"></script>
 	<script src="./js/controller/listaselecao-controller.js"></script>
 	<script src="./js/controller/campeonato-controller.js"></script>
+  <script src="./js/controller/listacampeonato-controller.js"></script>
     <script src="./js/resources/jquery.js"></script>
 	<script src="./js/resources/jquery-ui-1.10.4.min.js"></script>
     <script src="./js/resources/jquery-1.8.3.min.js"></script>
@@ -103,6 +104,7 @@
                       </a>
                       <ul class="sub">
                           <li><a class="" href="/#/campeonato/seleciona">Novo</a></li>
+                          <li><a class="" href="/#/campeonato/lista">Lista</a></li>
                       </ul>
                   </li>
                   <li>
@@ -153,18 +155,6 @@
       
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper">            
-              <!--overview start-->
-			  <div class="row">
-				<div class="col-lg-12">
-					<h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
-					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-						<li><i class="fa fa-laptop"></i>Dashboard</li>						  	
-					</ol>
-				</div>
-			</div>
-          </section>
           <div ng-view = "ng-view" class="padding-left-right">
 
 		  </div>

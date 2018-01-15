@@ -10,6 +10,7 @@ import com.futebolsimulador.model.entity.Grupo;
 import com.futebolsimulador.model.entity.InfoSelecaoNoGrupo;
 import com.futebolsimulador.model.entity.Selecao;
 import com.futebolsimulador.repository.GrupoRepository;
+import com.futebolsimulador.repository.InfoSelecaoNoGrupoRepository;
 
 @Service
 public class GrupoService {
@@ -19,6 +20,9 @@ public class GrupoService {
 	
 	@Autowired
 	private JogoService jogoService;
+	
+	@Autowired
+	private InfoSelecaoNoGrupoRepository infoSelecaoNoGrupoRepository;
 	
 	public ArrayList<Grupo> geraGrupos(ArrayList<Selecao> selecoes){
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
@@ -39,7 +43,7 @@ public class GrupoService {
 		calculaSaldoGols(infoSelecoes);
 		calculaClassificacao(infoSelecoes);
 		grupo.setInfoSelecoes(infoSelecoes);
-		//grupoRepository.save(grupo); testar se quando salvar o campeonato ja salva o grupo
+		grupoRepository.save(grupo);
 		return grupo;
 	}
 
@@ -62,11 +66,17 @@ public class GrupoService {
 
 	private ArrayList<InfoSelecaoNoGrupo> getInfosSels(Selecao sel1, Selecao sel2, Selecao sel3, Selecao sel4) {
 		ArrayList<InfoSelecaoNoGrupo> infoSels = new ArrayList<InfoSelecaoNoGrupo>();
-		infoSels.add(new InfoSelecaoNoGrupo(sel1));
-		infoSels.add(new InfoSelecaoNoGrupo(sel2));
-		infoSels.add(new InfoSelecaoNoGrupo(sel3));
-		infoSels.add(new InfoSelecaoNoGrupo(sel4));
+		infoSels.add(createInfoSelecaoNoGrupo(sel1));
+		infoSels.add(createInfoSelecaoNoGrupo(sel2));
+		infoSels.add(createInfoSelecaoNoGrupo(sel3));
+		infoSels.add(createInfoSelecaoNoGrupo(sel4));
 		return infoSels;
+	}
+
+	private InfoSelecaoNoGrupo createInfoSelecaoNoGrupo(Selecao sel1) {
+		InfoSelecaoNoGrupo info = new InfoSelecaoNoGrupo(sel1);
+		infoSelecaoNoGrupoRepository.saveAndFlush(info);
+		return info;
 	}
 
 }

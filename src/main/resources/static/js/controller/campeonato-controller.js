@@ -1,4 +1,4 @@
-appSimulador.controller ("campeonatoController", function  ($scope, $http, $window){
+appSimulador.controller ("campeonatoController", function  ($scope,  $routeParams, $http, $window){
 
 	$scope.selecoes = [];
 	$scope.selecoesSelecionadas = [];
@@ -19,6 +19,7 @@ appSimulador.controller ("campeonatoController", function  ($scope, $http, $wind
 	$scope.campeonatoGerado = false;
 	
 	$scope.listarSelecoes = function(){
+		$scope.campeonatoGerado = false;
 		$http({method:'GET', url:'/selecao'})
 		.then(function (response){
 			$scope.selecoes = response.data;
@@ -28,6 +29,7 @@ appSimulador.controller ("campeonatoController", function  ($scope, $http, $wind
 	};
 
 	$scope.gerarCampeonato = function(){
+		$scope.campeonatoGerado = true;
 		$http({method:'POST', url:'/campeonato',data:$scope.selecoesSelecionadas})
 		.then(function (response){
 			 $scope.campeonato = response.data;
@@ -44,8 +46,6 @@ appSimulador.controller ("campeonatoController", function  ($scope, $http, $wind
 			 $scope.semis = $scope.campeonato.semiFinal;
 			 $scope.finalCampeonato = $scope.campeonato.finalCampeonato;
 			 $scope.terceiroQuarto = $scope.campeonato.terceiroQuarto;
-			 $scope.campeonatoGerado = true;
-			// $window.location.href = '/#/campeonato/gera';
 		} , function (response){
 			erro("Error: " + status);
 		});
@@ -67,12 +67,41 @@ appSimulador.controller ("campeonatoController", function  ($scope, $http, $wind
 		}
 	};
 
+	$scope.novoCampeonatoGerado = function(){
+		return !$scope.campeonatoGerado;
+	};
+
 	$scope.campeonatoCompleto = function(){
 		if ($scope.selecoesSelecionadas.length == 32){
 			return true;
 		} 
 		return false;
 	};
+
+	$scope.getCampeonato = function(campeonatoId){
+		$http.get("campeonato/"+campeonatoId).then(function (response){
+			$scope.campeonato = response.data;
+			$scope.grupoA = $scope.campeonato.grupos[0];
+			 $scope.grupoB = $scope.campeonato.grupos[1];
+			 $scope.grupoC = $scope.campeonato.grupos[2];
+			 $scope.grupoD = $scope.campeonato.grupos[3];
+			 $scope.grupoE = $scope.campeonato.grupos[4];
+			 $scope.grupoF = $scope.campeonato.grupos[5];
+			 $scope.grupoG = $scope.campeonato.grupos[6];
+			 $scope.grupoH = $scope.campeonato.grupos[7];
+			 $scope.oitavas = $scope.campeonato.oitavasFinal;
+			 $scope.quartas = $scope.campeonato.quartasFinal;
+			 $scope.semis = $scope.campeonato.semiFinal;
+			 $scope.finalCampeonato = $scope.campeonato.finalCampeonato;
+			 $scope.terceiroQuarto = $scope.campeonato.terceiroQuarto;
+		}, function (response){
+			erro("Error: " + status);
+		});
+	};
+
+	if ($routeParams.campeonatoId != null){
+		$scope.getCampeonato($routeParams.campeonatoId);
+	}
 
 
 });
