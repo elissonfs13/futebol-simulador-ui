@@ -42,12 +42,12 @@ public class Jogo implements Serializable {
 	
 	private Resultado resultado;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "grupo_id")
 	@JsonBackReference
 	private Grupo grupo;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="campeonato_id")
     @JsonBackReference
 	private Campeonato campeonato;

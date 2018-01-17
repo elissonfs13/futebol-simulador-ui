@@ -25,7 +25,7 @@ public class InfoSelecaoNoGrupo implements Serializable, Comparable<InfoSelecaoN
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "grupo_id")
 	@JsonBackReference
 	private Grupo grupo;
@@ -43,8 +43,8 @@ public class InfoSelecaoNoGrupo implements Serializable, Comparable<InfoSelecaoN
 	
 	private Integer classificacao;
 
-	public Long getId() {
-		return id;
+	public InfoSelecaoNoGrupo() {
+		super();
 	}
 
 	public InfoSelecaoNoGrupo(Selecao selecao) {
@@ -54,6 +54,10 @@ public class InfoSelecaoNoGrupo implements Serializable, Comparable<InfoSelecaoN
 		this.golsMarcados = new Integer(0);
 		this.golsSofridos = new Integer(0);
 		this.saldoGols = new Integer(0);
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
 	public void setId(Long id) {

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.futebolsimulador.model.entity.Campeonato;
+import com.futebolsimulador.model.entity.Grupo;
 import com.futebolsimulador.model.entity.InfoSelecaoNoGrupo;
 import com.futebolsimulador.model.entity.Jogo;
 import com.futebolsimulador.model.entity.Selecao;
@@ -21,26 +23,27 @@ public class JogoService {
 	@Autowired
 	private GeradorAleatorio gerador;
 	
-	public Jogo geraJogo(Selecao selecao1, Selecao selecao2, Boolean podeEmpatar){
-		Jogo jogo = new Jogo(selecao1, selecao2, podeEmpatar);
-		gerarResultado(jogo);
-		jogoRepository.saveAndFlush(jogo);
+	public Jogo geraJogo(Campeonato campeonato, Selecao selecao1, Selecao selecao2, Boolean podeEmpatar){
+		Jogo jogo = criarNovoJogo(selecao1, selecao2, podeEmpatar);
+		jogo.setCampeonato(campeonato);
+		jogoRepository.save(jogo);
 		return jogo;
 	}
 	
-	public ArrayList<Jogo> getJogosGrupo(Boolean empate, ArrayList<InfoSelecaoNoGrupo> infoSels) {
+	public ArrayList<Jogo> getJogosGrupo(Grupo grupo, Boolean empate, ArrayList<InfoSelecaoNoGrupo> infoSels) {
 		ArrayList<Jogo> jogos = new ArrayList<Jogo>();
-		jogos.add(geraJogoGrupo(infoSels.get(0), infoSels.get(1), empate));
-		jogos.add(geraJogoGrupo(infoSels.get(2), infoSels.get(3), empate));
-		jogos.add(geraJogoGrupo(infoSels.get(0), infoSels.get(2), empate));
-		jogos.add(geraJogoGrupo(infoSels.get(1), infoSels.get(3), empate));
-		jogos.add(geraJogoGrupo(infoSels.get(0), infoSels.get(3), empate));
-		jogos.add(geraJogoGrupo(infoSels.get(1), infoSels.get(2), empate));
+		jogos.add(geraJogoGrupo(grupo, infoSels.get(0), infoSels.get(1), empate));
+		jogos.add(geraJogoGrupo(grupo, infoSels.get(2), infoSels.get(3), empate));
+		jogos.add(geraJogoGrupo(grupo, infoSels.get(0), infoSels.get(2), empate));
+		jogos.add(geraJogoGrupo(grupo, infoSels.get(1), infoSels.get(3), empate));
+		jogos.add(geraJogoGrupo(grupo, infoSels.get(0), infoSels.get(3), empate));
+		jogos.add(geraJogoGrupo(grupo, infoSels.get(1), infoSels.get(2), empate));
 		return jogos;
 	}
 	
-	public Jogo geraJogoGrupo(InfoSelecaoNoGrupo infoSelecao1, InfoSelecaoNoGrupo infoSelecao2, Boolean podeEmpatar){
-		Jogo jogo = geraJogo(infoSelecao1.getSelecao(), infoSelecao2.getSelecao(), podeEmpatar);
+	public Jogo geraJogoGrupo(Grupo grupo, InfoSelecaoNoGrupo infoSelecao1, InfoSelecaoNoGrupo infoSelecao2, Boolean podeEmpatar){
+		Jogo jogo = criarNovoJogo(infoSelecao1.getSelecao(), infoSelecao2.getSelecao(), podeEmpatar);
+		jogo.setGrupo(grupo);
 		
 		if (Resultado.TIME1.equals(jogo.getResultado())){
 			infoSelecao1.setPontos(infoSelecao1.getPontos() + 3);
@@ -56,6 +59,13 @@ public class JogoService {
 		infoSelecao2.setGolsMarcados(infoSelecao2.getGolsMarcados() + jogo.getGols2());
 		infoSelecao2.setGolsSofridos(infoSelecao2.getGolsSofridos() + jogo.getGols1());
 		
+		jogoRepository.save(jogo);
+		return jogo;
+	}
+
+	private Jogo criarNovoJogo(Selecao selecao1, Selecao selecao2, Boolean podeEmpatar) {
+		Jogo jogo = new Jogo(selecao1, selecao2, podeEmpatar);
+		gerarResultado(jogo);
 		return jogo;
 	}
 	

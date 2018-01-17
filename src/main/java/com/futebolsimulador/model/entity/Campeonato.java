@@ -3,6 +3,7 @@ package com.futebolsimulador.model.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,8 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Campeonato implements Serializable {
@@ -28,20 +27,16 @@ public class Campeonato implements Serializable {
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao sede;
 	
-	@OneToMany(mappedBy = "campeonato", fetch = FetchType.EAGER)
-    @JsonManagedReference
+	@OneToMany(mappedBy = "campeonato", cascade = CascadeType.ALL)
 	private List<Grupo> grupos;
 	
-	@OneToMany(mappedBy = "campeonato", fetch = FetchType.EAGER)
-    @JsonManagedReference
+	@OneToMany(mappedBy = "campeonato")
 	private List<Jogo> oitavasFinal;
 	
-	@OneToMany(mappedBy = "campeonato", fetch = FetchType.EAGER)
-    @JsonManagedReference
+	@OneToMany(mappedBy = "campeonato")
 	private List<Jogo> quartasFinal;
 	
-	@OneToMany(mappedBy = "campeonato", fetch = FetchType.EAGER)
-    @JsonManagedReference
+	@OneToMany(mappedBy = "campeonato")
 	private List<Jogo> semiFinal;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
@@ -62,6 +57,15 @@ public class Campeonato implements Serializable {
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Selecao quarto;
 
+	public Campeonato() {
+		super();
+	}
+
+	public Campeonato(Selecao sede) {
+		super();
+		this.sede = sede;
+	}
+	
 	public Long getId() {
 		return id;
 	}

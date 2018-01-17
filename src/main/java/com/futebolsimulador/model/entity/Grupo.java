@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Grupo implements Serializable {
@@ -30,26 +29,28 @@ public class Grupo implements Serializable {
 	
 	private String nome;
 	
-	@OneToMany(mappedBy = "grupo", fetch = FetchType.EAGER)
-    @JsonManagedReference
+	@OneToMany(mappedBy = "grupo")
 	private List<InfoSelecaoNoGrupo> infoSelecoes;
 	
-	@OneToMany(mappedBy = "grupo", fetch = FetchType.EAGER)
-    @JsonManagedReference
+	@OneToMany(mappedBy = "grupo")
 	private List<Jogo> jogos;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne
     @JoinColumn(name="campeonato_id")
     @JsonBackReference
 	private Campeonato campeonato;
 
-	public Long getId() {
-		return id;
+	public Grupo() {
+		super();
 	}
 
 	public Grupo(String nome) {
 		super();
 		this.nome = nome;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
 	public void setId(Long id) {
