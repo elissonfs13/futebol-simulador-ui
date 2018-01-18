@@ -25,7 +25,6 @@ public class JogoService {
 	
 	public Jogo geraJogo(Campeonato campeonato, Selecao selecao1, Selecao selecao2, Boolean podeEmpatar){
 		Jogo jogo = criarNovoJogo(selecao1, selecao2, podeEmpatar);
-		jogo.setCampeonato(campeonato);
 		jogoRepository.save(jogo);
 		return jogo;
 	}
@@ -36,8 +35,8 @@ public class JogoService {
 		jogos.add(geraJogoGrupo(grupo, infoSels.get(2), infoSels.get(3), empate));
 		jogos.add(geraJogoGrupo(grupo, infoSels.get(0), infoSels.get(2), empate));
 		jogos.add(geraJogoGrupo(grupo, infoSels.get(1), infoSels.get(3), empate));
-		jogos.add(geraJogoGrupo(grupo, infoSels.get(0), infoSels.get(3), empate));
-		jogos.add(geraJogoGrupo(grupo, infoSels.get(1), infoSels.get(2), empate));
+		jogos.add(geraJogoGrupo(grupo, infoSels.get(3), infoSels.get(0), empate));
+		jogos.add(geraJogoGrupo(grupo, infoSels.get(2), infoSels.get(1), empate));
 		return jogos;
 	}
 	

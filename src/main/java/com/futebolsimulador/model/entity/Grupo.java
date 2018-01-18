@@ -3,15 +3,14 @@ package com.futebolsimulador.model.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -30,9 +29,11 @@ public class Grupo implements Serializable {
 	private String nome;
 	
 	@OneToMany(mappedBy = "grupo")
+	@OrderBy(value = "classificacao")
 	private List<InfoSelecaoNoGrupo> infoSelecoes;
 	
 	@OneToMany(mappedBy = "grupo")
+	@OrderBy(value = "id")
 	private List<Jogo> jogos;
 	
 	@ManyToOne

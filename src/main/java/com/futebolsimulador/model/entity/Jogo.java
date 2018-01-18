@@ -47,11 +47,6 @@ public class Jogo implements Serializable {
 	@JsonBackReference
 	private Grupo grupo;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="campeonato_id")
-    @JsonBackReference
-	private Campeonato campeonato;
-	
 	public Jogo(Selecao selecao1, Selecao selecao2, Boolean podeEmpatar) {
 		super();
 		this.selecao1 = selecao1;
@@ -129,11 +124,4 @@ public class Jogo implements Serializable {
 		this.grupo = grupo;
 	}
 
-	public Campeonato getCampeonato() {
-		return campeonato;
-	}
-
-	public void setCampeonato(Campeonato campeonato) {
-		this.campeonato = campeonato;
-	}
 }

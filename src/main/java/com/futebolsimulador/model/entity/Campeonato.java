@@ -9,8 +9,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
 public class Campeonato implements Serializable {
@@ -30,13 +34,25 @@ public class Campeonato implements Serializable {
 	@OneToMany(mappedBy = "campeonato", cascade = CascadeType.ALL)
 	private List<Grupo> grupos;
 	
-	@OneToMany(mappedBy = "campeonato")
+	@JoinTable(name = "oitavas_final", joinColumns = {
+			@JoinColumn(name = "campeonato_id", referencedColumnName = "id", nullable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "jogo_id", referencedColumnName = "id", nullable = false) })
+	@ManyToMany(cascade = CascadeType.ALL)
+	@OrderBy("id")
 	private List<Jogo> oitavasFinal;
 	
-	@OneToMany(mappedBy = "campeonato")
+	@JoinTable(name = "quartas_final", joinColumns = {
+			@JoinColumn(name = "campeonato_id", referencedColumnName = "id", nullable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "jogo_id", referencedColumnName = "id", nullable = false) })
+	@ManyToMany(cascade = CascadeType.ALL)
+	@OrderBy("id")
 	private List<Jogo> quartasFinal;
 	
-	@OneToMany(mappedBy = "campeonato")
+	@JoinTable(name = "semi_final", joinColumns = {
+			@JoinColumn(name = "campeonato_id", referencedColumnName = "id", nullable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "jogo_id", referencedColumnName = "id", nullable = false) })
+	@ManyToMany(cascade = CascadeType.ALL)
+	@OrderBy("id")
 	private List<Jogo> semiFinal;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
