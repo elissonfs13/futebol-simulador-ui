@@ -11,7 +11,7 @@
 		</div>
 	  </div>
 	</section>
-	<section class="panel">
+	<section class="panel" ng-if="novoCampeonatoGerado()">
 		<header class="panel-heading no-border">
             Selecionador de Seleções
         </header>
@@ -47,9 +47,16 @@
             </div>
         </div>
     </section>
-    <section class="panel">
+    <section class="panel" ng-if="!novoCampeonatoGerado()">
         <header class="panel-heading no-border">
-            Classificação Final
+          <div class="row">
+            <div class="col-sm-9">
+              Classificação Final
+            </div>
+            <div class="col-sm-3">
+              País Sede: <img ng-src="img/bandeiras/{{campeonato.sede.bandeira}}"/> {{campeonato.sede.nome}}
+            </div>
+          </div>
         </header>
 	    <div class="row" style="margin-left: 0px;">
 	    	<div class="col-sm-3">
@@ -70,7 +77,7 @@
 	    	</div>
 	    </div>
 	</section>
-	<section class="panel">
+	<section class="panel" ng-if="!novoCampeonatoGerado()">
         <div class="row">
           <div class="col-sm-6">
             <section class="panel">

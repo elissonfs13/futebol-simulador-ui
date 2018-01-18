@@ -68,7 +68,10 @@ appSimulador.controller ("campeonatoController", function  ($scope,  $routeParam
 	};
 
 	$scope.novoCampeonatoGerado = function(){
-		return !$scope.campeonatoGerado;
+		if ($scope.campeonatoGerado || $routeParams.campeonatoId != null){
+			return false;
+		}
+		return true;
 	};
 
 	$scope.campeonatoCompleto = function(){
