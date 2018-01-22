@@ -45,6 +45,9 @@
             <div class="col-sm-12" style="padding-top: 10px; text-align: center;" ng-if="campeonatoCompleto()">
             	<a class="btn btn-primary" ng-click="gerarCampeonato()" title="Bootstrap 3 themes generator">Gerar Campeonato</a>
             </div>
+            <div class="col-sm-12" style="padding-top: 10px; text-align: center;" ng-if="!campeonatoCompleto()">
+              <a class="btn btn-primary" ng-click="selecionaAleatorio()" title="Bootstrap 3 themes generator">Escolher seleções aleatórias</a>
+            </div>
         </div>
     </section>
     <section class="panel" ng-if="!novoCampeonatoGerado()">
@@ -785,7 +788,7 @@
                     <td style="vertical-align: middle;">X</td>
                     <td style="vertical-align: middle;">{{grupoF.jogos[5].gols2}}</td>
                     <td style="vertical-align: middle;">{{grupoF.jogos[5].selecao2.nome}}</td>
-                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoB.jogos[5].selecao2.bandeira}}"/></td>
+                    <td class="text-center"><img ng-src="img/bandeiras/{{grupoF.jogos[5].selecao2.bandeira}}"/></td>
                   </tr>
                 </tbody>
               </table>

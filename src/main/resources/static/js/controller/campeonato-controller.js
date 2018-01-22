@@ -51,6 +51,23 @@ appSimulador.controller ("campeonatoController", function  ($scope,  $routeParam
 		});
 	};
 
+	$scope.selecionaAleatorio = function(){
+		var selEscolhida;
+		for (var i = $scope.selecoesSelecionadas.length; i < 32; i++){
+			numGerado = $scope.getRandomIntInclusive(0,$scope.selecoes.length - 1);
+			selEscolhida = $scope.selecoes[numGerado];
+			if (selEscolhida != undefined){
+				$scope.seleciona(selEscolhida);
+			}
+		}
+	};
+
+	$scope.getRandomIntInclusive = function(min, max) {
+		min = Math.ceil(min);
+	    max = Math.floor(max);
+	    return Math.floor(Math.random() * (max - min + 1)) + min;
+	};
+
 	$scope.seleciona = function(selecaoEscolhida){
 		$scope.selecoesSelecionadas.push(selecaoEscolhida);
 		var index = $scope.selecoes.indexOf(selecaoEscolhida);

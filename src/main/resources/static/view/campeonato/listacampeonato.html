@@ -35,7 +35,7 @@
         <table id="selecoesLista" class="table table-bordered" style="background-color: #fafafa;">
             <thead>
             <tr>
-            	<th class="text-left">Sede</th>
+            	<th class="text-left active">Sede</th>
                 <th class="text-left">Campeão</th>
                 <th class="text-left">Vice Campeão</th>
                 <th class="text-left">3º Lugar</th>
@@ -45,7 +45,7 @@
             </thead>
             <tbody>
 	            <tr dir-paginate="campeonato in campeonatos|itemsPerPage:qtdSelecoes"> 
-	            	<td class="text-left"><img ng-src="img/bandeiras/{{campeonato.sede.bandeira}}"/> {{campeonato.sede.nome}}</td>
+	            	<td class="text-left active"><img ng-src="img/bandeiras/{{campeonato.sede.bandeira}}"/> {{campeonato.sede.nome}}</td>
 					<td class="text-left"><img ng-src="img/bandeiras/{{campeonato.primeiro.bandeira}}"/> {{campeonato.primeiro.nome}}</td>
 					<td class="text-left"><img ng-src="img/bandeiras/{{campeonato.segundo.bandeira}}"/> {{campeonato.segundo.nome}}</td>
 					<td class="text-left"><img ng-src="img/bandeiras/{{campeonato.terceiro.bandeira}}"/> {{campeonato.terceiro.nome}}</td>
