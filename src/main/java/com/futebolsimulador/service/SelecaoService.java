@@ -31,13 +31,23 @@ public class SelecaoService {
 		selecaoRepository.delete(selecao);
 	}
 	
-	public Selecao alterar(Selecao selecao) {
-		return selecaoRepository.save(selecao);
+	public Selecao alterar(Selecao selecao, Long id) {
+		return selecaoRepository.save(alterarAtributos(selecao, id));
 	}
 	
 	public void preCadastroSelecoes(){
 		selecaoRepository.deleteAll();
 		cadastraSelecoes();
+	}
+	
+	private Selecao alterarAtributos(Selecao selecaoEditada, Long id) {
+		Selecao selecao = buscarPorId(id);
+		selecao.setNome(selecaoEditada.getNome());
+		selecao.setBandeira(selecaoEditada.getBandeira());
+		selecao.setNivel(selecaoEditada.getNivel());
+		selecao.setAbrev(selecaoEditada.getAbrev());
+		selecao.setConfederacao(selecaoEditada.getConfederacao());
+		return selecao;
 	}
 
 	private void cadastraSelecoes() {

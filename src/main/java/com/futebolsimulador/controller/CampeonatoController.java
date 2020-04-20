@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import com.futebolsimulador.model.entity.Campeonato;
 import com.futebolsimulador.model.entity.Selecao;
 import com.futebolsimulador.service.CampeonatoService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/campeonato")
 public class CampeonatoController {
@@ -24,19 +26,19 @@ public class CampeonatoController {
 	private CampeonatoService campeonatoService;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Campeonato> cadastrarSelecao(@RequestBody ArrayList<Selecao> selecoes){
+	public ResponseEntity<Campeonato> geraCampeonato(@RequestBody ArrayList<Selecao> selecoes){
 		Campeonato campeonato = campeonatoService.geraCampeonato(selecoes);
 		return new ResponseEntity<>(campeonato, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Campeonato>> buscarTodasSelecoes(){
+	public ResponseEntity<List<Campeonato>> buscarTodosCampeonatos(){
 		List<Campeonato> campeonatosBuscadas = campeonatoService.buscarTodos();
 		return new ResponseEntity<>(campeonatosBuscadas, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
-	public ResponseEntity<Campeonato> buscarClientePorId(@PathVariable Long id) {
+	public ResponseEntity<Campeonato> buscarCampeonatoPorId(@PathVariable Long id) {
 		Campeonato campeonato = campeonatoService.buscarPorId(id);
 		return new ResponseEntity<>(campeonato, HttpStatus.OK);
 	}

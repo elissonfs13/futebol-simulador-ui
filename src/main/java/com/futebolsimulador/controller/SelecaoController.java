@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.futebolsimulador.service.SelecaoService;
 import com.futebolsimulador.model.entity.Selecao;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/selecao")
 public class SelecaoController {
@@ -34,7 +36,7 @@ public class SelecaoController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
-	public ResponseEntity<Selecao> buscarClientePorId(@PathVariable Long id) {
+	public ResponseEntity<Selecao> buscarSelecaoPorId(@PathVariable Long id) {
 		Selecao selecao = selecaoService.buscarPorId(id);
 		return new ResponseEntity<>(selecao, HttpStatus.OK);
 	}
@@ -49,9 +51,9 @@ public class SelecaoController {
 		return new ResponseEntity<>( HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT)
-	public ResponseEntity<Selecao> alterarSelecao(@RequestBody Selecao selecao) {
-		Selecao selecaoAlterada = selecaoService.alterar(selecao);
+	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
+	public ResponseEntity<Selecao> alterarSelecao(@RequestBody Selecao selecao, @PathVariable Long id) {
+		Selecao selecaoAlterada = selecaoService.alterar(selecao, id);
 		return new ResponseEntity<>(selecaoAlterada, HttpStatus.OK);
 	}
 	
