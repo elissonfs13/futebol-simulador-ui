@@ -1,0 +1,1212 @@
+<section class="wrapper">            
+  <div class="row">
+  <div class="col-lg-12">
+    <h3 class="page-header"><i class="fa fa-laptop"></i> Campeonato</h3>
+    <ol class="breadcrumb">
+      <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+      <li><i class="fa fa-laptop"></i>Campeonato</li>               
+    </ol>
+  </div>
+  </div>
+</section>
+<div class="col-sm-12">
+    <section class="panel">
+      <header class="panel-heading no-border">
+        <div class="row">
+          <div class="col-sm-9">
+            Classificação Final
+          </div>
+          <div class="col-sm-3">
+            País Sede: <img [src]="'assets/img/bandeiras/'+campeonato.sede.bandeira"/> {{campeonato.sede.nome}}
+          </div>
+        </div>
+      </header>
+      <div class="row" style="margin-left: 0px;">
+        <div class="col-sm-3">
+          <h4 class="alert-heading">Campeão</h4>
+          <p><img [src]="'assets/img/bandeiras/'+campeonato.primeiro.bandeira"/> {{campeonato.primeiro.nome}}</p>
+        </div>
+        <div class="col-sm-3">
+          <h4 class="alert-heading">Vice Campeão</h4>
+          <p><img [src]="'assets/img/bandeiras/'+campeonato.segundo.bandeira"/> {{campeonato.segundo.nome}}</p>
+        </div>
+        <div class="col-sm-3">
+          <h4 class="alert-heading">3º Lugar</h4>
+          <p><img [src]="'assets/img/bandeiras/'+campeonato.terceiro.bandeira"/> {{campeonato.terceiro.nome}}</p>
+        </div>
+        <div class="col-sm-3">
+          <h4 class="alert-heading">4º Lugar</h4>
+          <p><img [src]="'assets/img/bandeiras/'+campeonato.quarto.bandeira"/> {{campeonato.quarto.nome}}</p>
+        </div>
+      </div>
+    </section>
+    <section class="panel">
+        <div class="row">
+          <div class="col-sm-6">
+            <section class="panel">
+              <header class="panel-heading no-border">
+                Grupo A
+              </header>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Pos.</th>
+                    <th></th>
+                    <th>Seleção</th>
+                    <th>Pts</th>
+                    <th>SG</th>
+                    <th>GP</th>
+                    <th>GC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.infoSelecoes[0].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[0].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.infoSelecoes[1].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[1].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.infoSelecoes[2].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[2].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.infoSelecoes[3].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.infoSelecoes[3].golsSofridos}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="panel">
+              <table class="table">
+                <tbody>
+                 <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[0].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[0].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[1].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[1].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[2].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[2].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[3].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[3].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[4].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[4].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[5].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoA.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoA.jogos[5].selecao2.bandeira"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+          <div class="col-sm-6">
+            <section class="panel">
+              <header class="panel-heading no-border">
+                Grupo B
+              </header>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Pos.</th>
+                    <th></th>
+                    <th>Seleção</th>
+                    <th>Pts</th>
+                    <th>SG</th>
+                    <th>GP</th>
+                    <th>GC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.infoSelecoes[0].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[0].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.infoSelecoes[1].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[1].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.infoSelecoes[2].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[2].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.infoSelecoes[3].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.infoSelecoes[3].golsSofridos}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="panel">
+              <table class="table">
+                <tbody>
+                 <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[0].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[0].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[1].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[1].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[2].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[2].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[3].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[3].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[4].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[4].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[5].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoB.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoB.jogos[5].selecao2.bandeira"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <section class="panel">
+              <header class="panel-heading no-border">
+                Grupo C
+              </header>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Pos.</th>
+                    <th></th>
+                    <th>Seleção</th>
+                    <th>Pts</th>
+                    <th>SG</th>
+                    <th>GP</th>
+                    <th>GC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.infoSelecoes[0].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[0].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.infoSelecoes[1].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[1].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.infoSelecoes[2].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[2].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.infoSelecoes[3].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.infoSelecoes[3].golsSofridos}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="panel">
+              <table class="table">
+                <tbody>
+                 <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[0].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[0].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[1].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[1].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[2].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[2].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[3].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[3].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[4].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[4].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[5].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoC.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoC.jogos[5].selecao2.bandeira"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+          <div class="col-sm-6">
+            <section class="panel">
+              <header class="panel-heading no-border">
+                Grupo D
+              </header>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Pos.</th>
+                    <th></th>
+                    <th>Seleção</th>
+                    <th>Pts</th>
+                    <th>SG</th>
+                    <th>GP</th>
+                    <th>GC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.infoSelecoes[0].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[0].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.infoSelecoes[1].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[1].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.infoSelecoes[2].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[2].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.infoSelecoes[3].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.infoSelecoes[3].golsSofridos}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="panel">
+              <table class="table">
+                <tbody>
+                 <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[0].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[0].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[1].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[1].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[2].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[2].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[3].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[3].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[4].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[4].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[5].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoD.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoD.jogos[5].selecao2.bandeira"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <section class="panel">
+              <header class="panel-heading no-border">
+                Grupo E
+              </header>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Pos.</th>
+                    <th></th>
+                    <th>Seleção</th>
+                    <th>Pts</th>
+                    <th>SG</th>
+                    <th>GP</th>
+                    <th>GC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.infoSelecoes[0].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[0].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.infoSelecoes[1].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[1].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.infoSelecoes[2].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[2].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.infoSelecoes[3].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.infoSelecoes[3].golsSofridos}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="panel">
+              <table class="table">
+                <tbody>
+                 <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[0].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[0].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[1].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[1].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[2].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[2].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[3].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[3].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[4].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[4].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[5].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoE.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoE.jogos[5].selecao2.bandeira"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+          <div class="col-sm-6">
+            <section class="panel">
+              <header class="panel-heading no-border">
+                Grupo F
+              </header>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Pos.</th>
+                    <th></th>
+                    <th>Seleção</th>
+                    <th>Pts</th>
+                    <th>SG</th>
+                    <th>GP</th>
+                    <th>GC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.infoSelecoes[0].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[0].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.infoSelecoes[1].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[1].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.infoSelecoes[2].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[2].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.infoSelecoes[3].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.infoSelecoes[3].golsSofridos}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="panel">
+              <table class="table">
+                <tbody>
+                 <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[0].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[0].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[1].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[1].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[2].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[2].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[3].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[3].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[4].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[4].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[5].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoF.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoF.jogos[5].selecao2.bandeira"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <section class="panel">
+              <header class="panel-heading no-border">
+                Grupo G
+              </header>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Pos.</th>
+                    <th></th>
+                    <th>Seleção</th>
+                    <th>Pts</th>
+                    <th>SG</th>
+                    <th>GP</th>
+                    <th>GC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.infoSelecoes[0].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[0].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.infoSelecoes[1].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[1].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.infoSelecoes[2].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[2].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.infoSelecoes[3].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.infoSelecoes[3].golsSofridos}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="panel">
+              <table class="table">
+                <tbody>
+                 <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[0].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[0].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[1].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[1].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[2].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[2].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[3].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[3].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[4].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[4].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[5].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoG.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoG.jogos[5].selecao2.bandeira"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+          <div class="col-sm-6">
+            <section class="panel">
+              <header class="panel-heading no-border">
+                Grupo H
+              </header>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Pos.</th>
+                    <th></th>
+                    <th>Seleção</th>
+                    <th>Pts</th>
+                    <th>SG</th>
+                    <th>GP</th>
+                    <th>GC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.infoSelecoes[0].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[0].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.infoSelecoes[1].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[1].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.infoSelecoes[2].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[2].golsSofridos}}</td>
+                  </tr>
+                  <tr>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].classificacao}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.infoSelecoes[3].selecao.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].selecao.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].pontos}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].saldoGols}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].golsMarcados}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.infoSelecoes[3].golsSofridos}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="panel">
+              <table class="table">
+                <tbody>
+                 <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[0].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[0].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[0].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[0].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[0].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[0].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[1].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[1].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[1].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[1].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[1].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[1].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[2].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[2].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[2].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[2].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[2].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[2].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[3].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[3].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[3].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[3].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[3].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[3].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[4].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[4].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[4].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[4].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[4].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[4].selecao2.bandeira"/></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[5].selecao1.bandeira"/></td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[5].selecao1.nome}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[5].gols1}}</td>
+                    <td style="vertical-align: middle;">X</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[5].gols2}}</td>
+                    <td style="vertical-align: middle;">{{grupoH.jogos[5].selecao2.nome}}</td>
+                    <td class="text-center"><img [src]="'assets/img/bandeiras/'+grupoH.jogos[5].selecao2.bandeira"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <section class="panel">
+              <header class="panel-heading">
+                Oitavas de Finais
+              </header>
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[0].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[0].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[0].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[0].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[0].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[0].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[1].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[1].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[1].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[1].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[1].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[1].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[2].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[2].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[2].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[2].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[2].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[2].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[3].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[3].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[3].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[3].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[3].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[3].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[4].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[4].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[4].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[4].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[4].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[4].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[5].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[5].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[5].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[5].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[5].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[5].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[6].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[6].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[6].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[6].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[6].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[6].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[7].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{oitavas[7].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[7].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{oitavas[7].gols2}}</td>
+                      <td style="vertical-align: middle;">{{oitavas[7].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+oitavas[7].selecao2.bandeira"/></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <div class="col-lg-6">
+            <section class="panel">
+              <header class="panel-heading">
+                Quartas de Finais
+              </header>
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+quartas[0].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{quartas[0].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{quartas[0].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{quartas[0].gols2}}</td>
+                      <td style="vertical-align: middle;">{{quartas[0].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+quartas[0].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+quartas[1].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{quartas[1].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{quartas[1].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{quartas[1].gols2}}</td>
+                      <td style="vertical-align: middle;">{{quartas[1].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+quartas[1].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+quartas[2].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{quartas[2].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{quartas[2].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{quartas[2].gols2}}</td>
+                      <td style="vertical-align: middle;">{{quartas[2].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+quartas[2].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+quartas[3].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{quartas[3].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{quartas[3].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{quartas[3].gols2}}</td>
+                      <td style="vertical-align: middle;">{{quartas[3].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+quartas[3].selecao2.bandeira"/></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="panel">
+              <header class="panel-heading">
+                Semi Finais
+              </header>
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+semis[0].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{semis[0].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{semis[0].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{semis[0].gols2}}</td>
+                      <td style="vertical-align: middle;">{{semis[0].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+semis[0].selecao2.bandeira"/></td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+semis[1].selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{semis[1].selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{semis[1].gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{semis[1].gols2}}</td>
+                      <td style="vertical-align: middle;">{{semis[1].selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+semis[1].selecao2.bandeira"/></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <section class="panel">
+              <header class="panel-heading">
+                Disputa do terceiro e quarto lugares
+              </header>
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+terceiroQuarto.selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{terceiroQuarto.selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{terceiroQuarto.gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{terceiroQuarto.gols2}}</td>
+                      <td style="vertical-align: middle;">{{terceiroQuarto.selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+terceiroQuarto.selecao2.bandeira"/></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <div class="col-lg-6">
+            <section class="panel">
+              <header class="panel-heading">
+                Final
+              </header>
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+finalCampeonato.selecao1.bandeira"/></td>
+                      <td style="vertical-align: middle;">{{finalCampeonato.selecao1.nome}}</td>
+                      <td style="vertical-align: middle;">{{finalCampeonato.gols1}}</td>
+                      <td style="vertical-align: middle;">X</td>
+                      <td style="vertical-align: middle;">{{finalCampeonato.gols2}}</td>
+                      <td style="vertical-align: middle;">{{finalCampeonato.selecao2.nome}}</td>
+                      <td class="text-center"><img [src]="'assets/img/bandeiras/'+finalCampeonato.selecao2.bandeira"/></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+    </section>
+</div>

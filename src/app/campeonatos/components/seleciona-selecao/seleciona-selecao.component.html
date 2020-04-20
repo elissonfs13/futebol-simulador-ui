@@ -1,0 +1,53 @@
+<section class="wrapper">            
+  <div class="row">
+  <div class="col-lg-12">
+    <h3 class="page-header"><i class="fa fa-laptop"></i> Campeonato</h3>
+    <ol class="breadcrumb">
+      <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+      <li><i class="fa fa-laptop"></i>Campeonato</li>               
+    </ol>
+  </div>
+  </div>
+</section>
+<div class="col-sm-12">
+  <section class="panel">
+    <header class="panel-heading no-border">
+      Selecionador de Seleções
+    </header>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <p>{{selecoesSelecionadas.length}} seleções selecionadas</p>
+        </div> 
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel-body back-color">
+            <div class="text" *ngFor="let selecao of selecoes">  
+              <a (click)="seleciona(selecao)" class="activity-img" data-toggle="tooltip" data-placement="top" [title]="selecao.abrev">
+                <img [src]="'assets/img/bandeiras/'+selecao.bandeira"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel-body back-color">
+            <div class="text" *ngFor="let selecao of selecoesSelecionadas">  
+              <a (click)="deseleciona(selecao)" class="activity-img" data-toggle="tooltip" data-placement="top" [title]="selecao.abrev">
+                <img [src]="'assets/img/bandeiras/'+selecao.bandeira"/>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12" style="padding-top: 10px; text-align: center;" *ngIf="campeonatoCompleto()">
+          <a class="btn btn-primary" (click)="gerarCampeonato()" title="Bootstrap 3 themes generator">Gerar Campeonato</a>
+        </div>
+        <div class="col-sm-12" style="padding-top: 10px; text-align: center;" *ngIf="!campeonatoCompleto()">
+          <a class="btn btn-primary" (click)="selecionaAleatorio()" title="Bootstrap 3 themes generator">Escolher seleções aleatórias</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

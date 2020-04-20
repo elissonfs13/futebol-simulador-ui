@@ -1,0 +1,147 @@
+<section class="wrapper">            
+  <div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header"><i class="fa fa-laptop"></i> Seleções</h3>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+			<li><i class="fa fa-laptop"></i>Seleções</li>						  	
+		</ol>
+	</div>
+  </div>
+</section>
+<div class="col-sm-12">
+	<section class="panel">
+        <header class="panel-heading" *ngIf="isEdition">
+            Edição de Seleção
+        </header>
+        <header class="panel-heading" *ngIf="!isEdition">
+            Cadastro de Seleção
+        </header>
+        <div class="panel-body">
+	        <form id="formSelecao" formSelecao="ngForm">
+	        	<div class="row">
+	        		<div class="col-md-2">
+						<div class="form-group"> 
+						   <label>Bandeira</label> 
+						   <div class="dropdown">
+						   		<button 
+							        type="button"
+							        id="dropdownMenu1"
+							        class="btn btn-default btn-block"
+							        data-toggle="dropdown" 
+							        aria-haspopup="true" 
+							        aria-expanded="true">
+								    <div *ngIf="selecao.bandeira == null">
+								    	Selecione 
+								    	<span class="caret"></span>
+								    </div>
+								    <div *ngIf="selecao.bandeira != null">
+								    	<img [src]="'assets/img/bandeiras/'+selecao.bandeira"/>
+								    	<span class="caret"></span>
+								    </div> 
+								</button>
+								<ul 
+									class="dropdown-menu pre-scrollable" 
+									aria-labelledby="dropdownMenu1">
+								    <li 
+								    	*ngFor="let bandeira of bandeiras" 
+								    	(click)="visualizarImagem(bandeira)">
+								    	<img [src]="'assets/img/bandeiras/'+bandeira"/>
+								    		{{" - "+bandeira}}
+								    </li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-10">
+						<div class="form-group">
+							<label>Nome</label> 
+							<input 
+						        type="text"
+						        class="form-control border-input"
+						        id="imputNome"
+						        name="imputNome"
+						        [(ngModel)]="selecao.nome"
+						        #nome="ngModel"
+						        required /> 
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<label>Sigla</label> 
+							<input 
+						        type="text"
+						        class="form-control border-input"
+						        id="imputAbrev"
+						        name="imputAbrev"
+						        [(ngModel)]="selecao.abrev"
+						        #nome="ngModel"
+						        required /> 
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group"> 
+						    <label>Confederação</label> 	
+							<select 
+								name="selectConfederacao"
+								id="selectConfederacao"
+								class="form-control"
+								[(ngModel)]="selecao.confederacao"
+								required>
+								<option 
+									*ngFor="let confederacao of confederacoes" 
+									[value]="confederacao">
+									{{ confederacao }}
+								</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group"> 
+						    <label>Nível</label> 
+							<select 
+								name="selectNivel"
+								id="selectNivel"
+								class="form-control"
+								[(ngModel)]="selecao.nivel"
+								required>
+								<option 
+									*ngFor="let nivel of niveis" 
+									[value]="nivel">
+									{{ nivel }}
+								</option>
+							</select>	
+						</div>
+					</div>
+				</div>
+	        	<div class="row">
+	        		<div class="col-md-3">
+						<input 
+							*ngIf="isEdition"
+					        type="submit"
+					        class="btn btn-info btn-fill btn-wd"
+					        (click)="editar()"
+					        value="Salvar" />
+					    <input 
+					    	*ngIf="!isEdition"
+					        type="submit"
+					        class="btn btn-info btn-fill btn-wd"
+					        (click)="cadastrar()"
+					        value="Salvar" />
+					</div>
+					<div class="col-md-6">
+					</div>
+					<div class="col-md-3" style="text-align: right;">
+						<input 
+					        type="button"
+					        class="btn btn-info btn-fill btn-wd"
+					        (click)="preCadastro()"
+					        value="Pré Cadastro" />
+					</div>
+	        	</div>
+	        </form>
+        </div>
+    </section>
+</div>

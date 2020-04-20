@@ -1,0 +1,123 @@
+<!-- container section start -->
+  <section id="container" class="">
+     
+      
+      <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="index.html" class="logo">Simulador <span class="lite">Futebol</span></a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+                <!--  search form start -->
+                <ul class="nav top-menu">                    
+                    <li>
+                        <form class="navbar-form">
+                            <input class="form-control" placeholder="Search" type="text" />
+                        </form>
+                    </li>                    
+                </ul>
+                <!--  search form end -->                
+            </div>
+      </header>      
+      <!--header end-->
+
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">                
+                  <li class="active">
+                      <a class="" href="index.html">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_document_alt"></i>
+                          <span>Seleções</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a [routerLink]="['/selecoes/listar']">Lista</a></li>     
+                          <li><a [routerLink]="['/selecoes/cadastrar']">Cadastro</a></li>
+
+                      </ul>
+                  </li>       
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>Campeonato</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a [routerLink]="['/campeonato/seleciona']">Novo</a></li>
+                          <li><a [routerLink]="['/campeonato/listar']">Lista</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a class="" href="widgets.html">
+                          <i class="icon_genius"></i>
+                          <span>Widgets</span>
+                      </a>
+                  </li>
+                  <li>                     
+                      <a class="" href="chart-chartjs.html">
+                          <i class="icon_piechart"></i>
+                          <span>Charts</span>
+                          
+                      </a>
+                                         
+                  </li>
+                             
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_table"></i>
+                          <span>Tables</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="basic_table.html">Basic Table</a></li>
+                      </ul>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Pages</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">                          
+                          <li><a class="" href="profile.html">Profile</a></li>
+                          <li><a class="" href="login.html"><span>Login Page</span></a></li>
+                          <li><a class="" href="blank.html">Blank Page</a></li>
+                          <li><a class="" href="404.html">404 Error</a></li>
+                      </ul>
+                  </li>
+                  
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+
+
+      <!--main content start-->
+      <section id="main-content">
+          <div class="padding-left-right">
+            <router-outlet></router-outlet>
+            <notifier-container></notifier-container>
+          </div>
+          
+          <div class="text-right padding-left-right">
+            <div class="credits">
+                Criado por Elisson Francisco da Silva
+            </div>
+          </div>
+      </section>
+      <!--main content end-->
+  </section>

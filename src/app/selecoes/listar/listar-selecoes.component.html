@@ -1,0 +1,102 @@
+<section class="wrapper">            
+  <div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header"><i class="fa fa-laptop"></i> Seleções</h3>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+			<li><i class="fa fa-laptop"></i>Seleções</li>						  	
+		</ol>
+	</div>
+  </div>
+</section>
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading no-border">
+            Seleções Cadastradas
+        </header>
+        <div class="panel-body back-color">
+        	<div class="row">
+	        	<form class="form-inline">
+	        		<div class="col-md-3">
+	        			<label>Quantidade por página:</label>
+	        			<div class="form-group margin-left">
+			        		<select id="qtdSelecoes" [(ngModel)]="qtdSelecoes" 
+			        		class="form-control" name="selectQtdSelecoes"> 
+							    <option *ngFor="let qtd of itensPorPagina" [value]="qtd">
+							    	{{qtd}}
+							    </option>
+							</select>
+						</div>
+	        		</div>
+	        		<div class="col-md-6 text-center">
+	        			<pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
+    						nextLabel="Posterior"></pagination-controls>
+	        		</div>
+	        		<div class="col-md-3 pull-right">
+		        		<label>Filtro:</label> 
+					    <div class="form-group margin-left">
+					        <input type="text" [(ngModel)]="procurar" name="inputFiltro"
+					        class="form-control" placeholder="Procurar...">
+					    </div>
+					</div>
+				</form>
+       		</div>
+   		</div>
+        <table id="selecoesLista" class="table table-bordered back-color">
+            <thead>
+	            <tr>
+	                <th class="text-center">
+	                	Bandeira
+	                </th>
+	                <th (click)="ordenar('nome')">
+	                	Nome
+	                </th>
+	                <th class="text-center" (click)="ordenar('confederacao')">
+	                	Confederação
+	                </th>
+	                <th class="text-center" (click)="ordenar('abrev')">
+	                	Sigla
+	                </th>
+	                <th class="text-center" (click)="ordenar('nivel')">
+	                	Nível
+	                </th>
+	                <th>Ações</th>
+	            </tr>
+            </thead>
+            <tbody>
+	            <tr *ngFor="let selecao of selecoes | 
+	            			stringFilter: procurar: 'nome' |
+	            			orderBy: sortKey : reverse |
+	            			paginate: { itemsPerPage: qtdSelecoes, currentPage: p }">
+					<td class="text-center">
+						<img [src]="'assets/img/bandeiras/'+selecao.bandeira"/>
+					</td>
+					<td style="vertical-align: middle;">
+						{{selecao.nome}}
+					</td>
+					<td class="text-center" style="vertical-align: middle;">
+						{{selecao.confederacao}}
+					</td>
+					<td class="text-center" style="vertical-align: middle;">
+						{{selecao.abrev}}
+					</td>
+					<td class="text-center" style="vertical-align: middle;">
+						{{selecao.nivel}}
+					</td>
+					<td> 
+						<div class="btn-group">
+                            <a class="btn btn-primary btn-sm" (click)="editarSelecao(selecao.id)">
+                            	Editar
+                            </a>
+                            <button type="button" class="btn btn-danger btn-sm" 
+                            	(click)="deletarSelecao(selecao)">
+                            	Excluir
+                            </button>    
+                        </div>
+					</td>
+				</tr>
+            </tbody>
+        </table>
+        
+    </section>
+</div>

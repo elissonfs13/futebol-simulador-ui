@@ -1,0 +1,72 @@
+<section class="wrapper">            
+  <div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header"><i class="fa fa-laptop"></i> Campeonatos</h3>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+			<li><i class="fa fa-laptop"></i>Campeonatos</li>						  	
+		</ol>
+	</div>
+  </div>
+</section>
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading no-border">
+            Campeonatos Realizados
+        </header>
+        <div class="panel-body back-color">
+        	<div class="row">
+	        	<form class="form-inline">
+	        		<div class="col-md-3">
+	        			<label>Quantidade por página: </label>
+	        			<div class="form-group margin-left">
+			        		<select id="qtdCampeonatos" 
+			        				[(ngModel)]="qtdCampeonatos" 
+			        				name="selectQtdCampeonatos" 
+			        				class="form-control"> 
+							    <option *ngFor="let qtd of itensPorPagina" [value]="qtd">
+							    	{{qtd}}
+							    </option>
+							</select>
+						</div>
+	        		</div>
+	        		<div class="col-md-6 text-center">
+	        			<pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
+    						nextLabel="Posterior"></pagination-controls>
+	        		</div>
+				</form>
+       		</div>
+   		</div>
+        <table id="selecoesLista" class="table table-bordered back-color">
+            <thead>
+            <tr>
+            	<th class="text-left active">Sede</th>
+                <th class="text-left">Campeão</th>
+                <th class="text-left">Vice Campeão</th>
+                <th class="text-left">3º Lugar</th>
+                <th class="text-left">4º Lugar</th>
+                <th class="text-center">Ver Campeonato</th>
+            </tr>
+            </thead>
+            <tbody>
+	            <tr *ngFor="let campeonato of campeonatos | 
+	            			paginate: { itemsPerPage: qtdCampeonatos, currentPage: p }">
+	            	<td class="text-left active"><img [src]="'/assets/img/bandeiras/'+campeonato.sede.bandeira"/> {{campeonato.sede.nome}}</td>
+					<td class="text-left"><img [src]="'/assets/img/bandeiras/'+campeonato.primeiro.bandeira"/> {{campeonato.primeiro.nome}}</td>
+					<td class="text-left"><img [src]="'/assets/img/bandeiras/'+campeonato.segundo.bandeira"/> {{campeonato.segundo.nome}}</td>
+					<td class="text-left"><img [src]="'/assets/img/bandeiras/'+campeonato.terceiro.bandeira"/> {{campeonato.terceiro.nome}}</td>
+					<td class="text-left"><img [src]="'/assets/img/bandeiras/'+campeonato.quarto.bandeira"/> {{campeonato.quarto.nome}}</td>
+					<td> 
+						<div class="btn-group">
+                            <a class="btn btn-primary btn-sm" (click)="verCampeonato(campeonato.id)">
+                            	Ver
+                            </a>
+                        </div>
+					</td>
+				</tr>
+            </tbody>
+        </table>
+        
+    </section>
+</div>
+
