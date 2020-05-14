@@ -16,7 +16,7 @@
           <div class="col-sm-9">
             Classificação Final
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-3" *ngIf="campeonato != null">
             País Sede: <img [src]="'assets/img/bandeiras/'+campeonato.sede.bandeira"/> {{campeonato.sede.nome}}
           </div>
         </div>

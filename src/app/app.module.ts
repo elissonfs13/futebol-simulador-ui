@@ -8,20 +8,15 @@ import { AppComponent } from './app.component';
 import { HomeModule, HomeRoutingModule } from './home';
 import { SelecoesModule, SelecoesRoutingModule } from './selecoes';
 import { CampeonatoModule, CampeonatoRoutingModule } from './campeonatos';
-import { SelecaoService, CampeonatoService } from './shared';
+import { GraficosModule, GraficosRoutingModule } from './graficos';
+import { MapasModule, MapasRoutingModule } from './mapas';
+import { SelecaoService, CampeonatoService, GraficoService } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
-    horizontal: {
-      position: 'right',
-      distance: 12
-    },
-    vertical: {
-      position: 'top',
-      distance: 12,
-      gap: 10
-    }
+    horizontal: { position: 'right', distance: 12 },
+    vertical: { position: 'top', distance: 12, gap: 10 }
   },
   theme: 'material',
   behaviour: {
@@ -33,21 +28,9 @@ const customNotifierOptions: NotifierOptions = {
   },
   animations: {
     enabled: true,
-    show: {
-      preset: 'slide',
-      speed: 300,
-      easing: 'ease'
-    },
-    hide: {
-      preset: 'fade',
-      speed: 300,
-      easing: 'ease',
-      offset: 50
-    },
-    shift: {
-      speed: 300,
-      easing: 'ease'
-    },
+    show: { preset: 'slide', speed: 300, easing: 'ease' },
+    hide: { preset: 'fade', speed: 300, easing: 'ease', offset: 50 },
+    shift: { speed: 300, easing: 'ease' },
     overlap: 150
   }
 };
@@ -63,16 +46,21 @@ const customNotifierOptions: NotifierOptions = {
     HttpClientModule,
     SelecoesModule,
     CampeonatoModule,
+    GraficosModule,
+    MapasModule,
     NotifierModule.withConfig( customNotifierOptions ),
 
 	  HomeRoutingModule,
     SelecoesRoutingModule,
     CampeonatoRoutingModule,
+    GraficosRoutingModule,
+    MapasRoutingModule,
     AppRoutingModule
   ],
   providers: [
     SelecaoService,
-    CampeonatoService
+    CampeonatoService,
+    GraficoService
   ],
   bootstrap: [AppComponent]
 })

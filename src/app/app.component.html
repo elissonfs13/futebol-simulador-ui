@@ -59,20 +59,31 @@
                           <li><a [routerLink]="['/campeonato/listar']">Lista</a></li>
                       </ul>
                   </li>
-                  <li>
-                      <a class="" href="widgets.html">
-                          <i class="icon_genius"></i>
-                          <span>Widgets</span>
-                      </a>
-                  </li>
-                  <li>                     
-                      <a class="" href="chart-chartjs.html">
+                  <li class="sub-menu">                     
+                      <a href="javascript:;" class="">
                           <i class="icon_piechart"></i>
-                          <span>Charts</span>
-                          
+                          <span>Gráficos</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
-                                         
+                      <ul class="sub">
+                          <li><a [routerLink]="['/graficos/campeoes']">Campeões</a></li>
+                          <li><a [routerLink]="['/graficos/colocacoes']">Colocações</a></li>
+                          <li><a [routerLink]="['/graficos/participantes']">Participantes</a></li>
+                      </ul>                   
                   </li>
+                  <li class="sub-menu">                     
+                      <a href="javascript:;" class="">
+                          <i class="icon_genius"></i>
+                          <span>Mapas</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a [routerLink]="['/mapas/campeoes']">Campeões</a></li>
+                          <li><a [routerLink]="['/mapas/colocacoes']">Colocações</a></li>
+                          <li><a [routerLink]="['/mapas/participantes']">Participantes</a></li>
+                      </ul>                   
+                  </li>
+                  
                              
                   <li class="sub-menu">
                       <a href="javascript:;" class="">

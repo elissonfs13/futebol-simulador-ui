@@ -38,7 +38,7 @@ export class ListarSelecoesComponent implements OnInit {
                   this.selecoes = data as Selecao[]; 
                 },
   				      err => { 
-                  this.alertErro("Erro ao obter seleções. "); 
+                  this.alertErro(err.error.mensagens); 
                 }
   			    );
 	  }
@@ -51,7 +51,7 @@ export class ListarSelecoesComponent implements OnInit {
                   this.listarSelecoes();
                 },
   				      err => { 
-                  this.alertErro("Erro ao deletar seleção."); 
+                  this.alertErro(err.error.mensagens); 
                 }
 			      );
 	  }
@@ -69,8 +69,8 @@ export class ListarSelecoesComponent implements OnInit {
       this.notifier.notify("success", msg);
     }
 
-    alertErro(msg: string): void {
-      this.notifier.notify("error", msg);
+    alertErro(mensagens: string[]): void {
+      mensagens.forEach(mensagem => this.notifier.notify("error", mensagem));
     }
 
 }

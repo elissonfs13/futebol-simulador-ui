@@ -44,6 +44,7 @@ export class CopaComponent implements OnInit {
     }
 
   	ngOnInit(): void {
+      this.campeonato = null;
   		this.idCampeonato = +this.route.snapshot.params['id'];
   		this.getCampeonato(this.idCampeonato);
   	}

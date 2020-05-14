@@ -31,7 +31,7 @@ export class CadastrarSelecoesComponent implements OnInit {
 
   	ngOnInit() {
       if (this.route.snapshot.params['id'] == undefined) {
-        this.selecao = new Selecao("", null, 0, "", "");
+        this.selecao = new Selecao("", null, 0, "", null);
         this.isEdition = false;
       } else {
         this.idSelecao = +this.route.snapshot.params['id'];
@@ -48,7 +48,8 @@ export class CadastrarSelecoesComponent implements OnInit {
           this.selecao = new Selecao("", null, 0, "", "");
         },
         err => { 
-          this.alertErro("Erro ao cadastrar seleção"); 
+          this.alertErro(err.error.mensagens); 
+          console.log(err);
         }
       );   	
   	}
@@ -59,7 +60,7 @@ export class CadastrarSelecoesComponent implements OnInit {
             this.alertSuccesso("Seleção editada com sucesso"); 
           },
           err => { 
-            this.alertErro("Erro ao editar seleção"); 
+            this.alertErro(err.error.mensagens); 
           }
         );     
     }
@@ -71,7 +72,7 @@ export class CadastrarSelecoesComponent implements OnInit {
           this.router.navigate(["/selecoes/listar"]);
         },
         err => { 
-          this.alertErro("Erro ao cadastrar seleções"); 
+          this.alertErro(err.error.mensagens); 
         }
       );             
   	}
@@ -82,7 +83,7 @@ export class CadastrarSelecoesComponent implements OnInit {
           this.bandeiras = data; 
         },
         err => { 
-          this.alertErro("Erro ao carregar bandeiras"); 
+          this.alertErro(err.error.mensagens); 
         }
   		);	
   	}
@@ -93,7 +94,7 @@ export class CadastrarSelecoesComponent implements OnInit {
           this.selecao = data; 
         },
         err => { 
-          this.alertErro("Erro ao carregar seleção"); 
+          this.alertErro(err.error.mensagens); 
         }
       );  
     }
@@ -106,8 +107,8 @@ export class CadastrarSelecoesComponent implements OnInit {
       this.notifier.notify("success", msg);
     }
 
-    alertErro(msg: string): void {
-      this.notifier.notify("error", msg);
+    alertErro(mensagens: string[]): void {
+      mensagens.forEach(mensagem => this.notifier.notify("error", mensagem));
     }
 
 }
