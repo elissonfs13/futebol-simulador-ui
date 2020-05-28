@@ -10,6 +10,7 @@ import { SelecoesModule, SelecoesRoutingModule } from './selecoes';
 import { CampeonatoModule, CampeonatoRoutingModule } from './campeonatos';
 import { GraficosModule, GraficosRoutingModule } from './graficos';
 import { MapasModule, MapasRoutingModule } from './mapas';
+import { PaginasModule, PaginasRoutingModule } from './paginas';
 import { SelecaoService, CampeonatoService, GraficoService } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -48,13 +49,16 @@ const customNotifierOptions: NotifierOptions = {
     CampeonatoModule,
     GraficosModule,
     MapasModule,
+    PaginasModule,
     NotifierModule.withConfig( customNotifierOptions ),
 
-	  HomeRoutingModule,
+	  
     SelecoesRoutingModule,
     CampeonatoRoutingModule,
     GraficosRoutingModule,
     MapasRoutingModule,
+    PaginasRoutingModule,
+    HomeRoutingModule,
     AppRoutingModule
   ],
   providers: [

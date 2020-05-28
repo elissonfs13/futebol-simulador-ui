@@ -33,7 +33,7 @@
                   <li class="active">
                       <a class="" href="index.html">
                           <i class="icon_house_alt"></i>
-                          <span>Dashboard</span>
+                          <span>Home</span>
                       </a>
                   </li>
                   <li class="sub-menu">
@@ -83,31 +83,17 @@
                           <li><a [routerLink]="['/mapas/participantes']">Participantes</a></li>
                       </ul>                   
                   </li>
-                  
-                             
-                  <li class="sub-menu">
+                  <li class="sub-menu">                     
                       <a href="javascript:;" class="">
-                          <i class="icon_table"></i>
-                          <span>Tables</span>
+                          <i class="icon_documents_alt"></i>
+                          <span>Páginas</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="basic_table.html">Basic Table</a></li>
-                      </ul>
-                  </li>
-                  
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon_documents_alt"></i>
-                          <span>Pages</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-                      <ul class="sub">                          
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="login.html"><span>Login Page</span></a></li>
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                      </ul>
+                          <li><a [routerLink]="['regras']">Regras</a></li>
+                          <li><a [routerLink]="['tecnologias']">Tecnologias</a></li>
+                          <li><a [routerLink]="['autor']">Autor</a></li>
+                      </ul>                   
                   </li>
                   
               </ul>
@@ -122,12 +108,6 @@
           <div class="padding-left-right">
             <router-outlet></router-outlet>
             <notifier-container></notifier-container>
-          </div>
-          
-          <div class="text-right padding-left-right">
-            <div class="credits">
-                Criado por Elisson Francisco da Silva
-            </div>
           </div>
       </section>
       <!--main content end-->
